@@ -24,12 +24,14 @@ export default function Home() {
         <section className="home" id="home">
           <div className="homeContainer bdGrid">
             <div className="homeImg">
-              <img src={img1} alt="img-1" data-speed="-2" className="move" />
-              <img src={img2} alt="img-2" data-speed="2" className="move" />
-              <img src={img3} alt="img-3" data-speed="2" className="move" />
-              <img src={img4} alt="img-4" data-speed="-2" className="move" />
-              <img src={img5} alt="img-5" data-speed="-2" className="move" />
-              <img src={img6} alt="img-6" data-speed="2" className="move" />
+              <img src={img1} alt="img-1" data-speed="-2" className="imgs move" />
+              <img src={img2} alt="img-2" data-speed="2" className="imgs move" />
+              <img src={img4} alt="img-4" data-speed="-2" className="imgs move" />
+              <img src={img5} alt="img-5" data-speed="-2" className="imgs move" />
+              {/* <div className="homeImg2"> */}
+              <img src={img3} alt="img-3" data-speed="2" className="img3 move" />
+              <img src={img6} alt="img-6" data-speed="2" className="img6 move" />
+              {/* </div> */}
             </div>
 
             <div className="homeData">
