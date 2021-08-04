@@ -6,7 +6,7 @@ export default function Shoes() {
     <>
       {/* <!--========== COLEÇÕES ==========--> */}
       <section className="shoes section bdContainer" id="shoes">
-        <h2 className="section-title">
+        <h2 className="sectionTitle">
           New Christmas
           {' '}
           <br />
