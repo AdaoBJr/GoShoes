@@ -1,4 +1,5 @@
 import React from 'react';
+import { /* FaHeart, */ FaRegHeart } from 'react-icons/fa';
 
 export default function Shoes() {
   return (
@@ -19,7 +20,7 @@ export default function Shoes() {
             <h3 className="shoesTitle">Snow Globe</h3>
             <span className="shoesCategory">shoes</span>
             <span className="shoesPreci">$9.45</span>
-            <a href className="button shoesButton"><i className="bx bx-heart" /></a>
+            <FaRegHeart className="button shoesButton" />
           </div>
 
           <div className="shoesContent">
@@ -27,7 +28,7 @@ export default function Shoes() {
             <h3 className="shoesTitle">Candy</h3>
             <span className="shoesCategory">shoes</span>
             <span className="shoesPreci">$2.52</span>
-            <a href className="button shoesButton"><i className="bx bx-heart" /></a>
+            <FaRegHeart className="button shoesButton" />
           </div>
 
           <div className="shoesContent">
@@ -35,7 +36,7 @@ export default function Shoes() {
             <h3 className="shoesTitle">Angel</h3>
             <span className="shoesCategory">shoes</span>
             <span className="shoesPreci">$13.15</span>
-            <a href className="button shoesButton"><i className="bx bx-heart" /></a>
+            <FaRegHeart className="button shoesButton" />
           </div>
 
           <div className="shoesContent">
@@ -43,7 +44,7 @@ export default function Shoes() {
             <h3 className="shoesTitle">Sphere</h3>
             <span className="shoesCategory">shoes</span>
             <span className="shoesPreci">$4.25</span>
-            <a href="#" className="button shoesButton"><i className="bx bx-heart" /></a>
+            <FaRegHeart className="button shoesButton" />
           </div>
 
           <div className="shoesContent">
@@ -51,7 +52,7 @@ export default function Shoes() {
             <h3 className="shoesTitle">Surprise gift</h3>
             <span className="shoesCategory">shoes</span>
             <span className="shoesPreci">$7.99</span>
-            <a href className="button shoesButton"><i className="bx bx-heart" /></a>
+            <FaRegHeart className="button shoesButton" />
           </div>
         </div>
       </section>
