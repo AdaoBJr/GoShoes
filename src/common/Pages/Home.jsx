@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../Components/Header';
 import ScrollTop from '../Components/ScrollTop';
 
 export default function Home() {
@@ -7,26 +8,7 @@ export default function Home() {
       {/* <!--========== SCROLL TOP ==========--> */}
       <ScrollTop />
       {/* <!--========== HEADER ==========--> */}
-      <header className="l-header" id="header">
-        <nav className="nav bd-container">
-          <a href className="nav__logo">Christmas Gift</a>
-
-          <div className="nav__menu" id="nav-menu">
-            <ul className="nav__list">
-              <li className="nav__item"><a href="#home" className="nav__link active-link">Home</a></li>
-              <li className="nav__item"><a href="#share" className="nav__link">Share</a></li>
-              <li className="nav__item"><a href="#decoration" className="nav__link">Decorations</a></li>
-              <li className="nav__item"><a href="#accessory" className="nav__link">Accessory</a></li>
-
-              <li><i className="bx bx-toggle-left change-theme" id="theme-button" /></li>
-            </ul>
-          </div>
-
-          <div className="nav__toggle" id="nav-toggle">
-            <i className="bx bx-grid-alt" />
-          </div>
-        </nav>
-      </header>
+      <Header />
 
       <main className="l-main">
         {/* <!--========== HOME ==========--> */}
