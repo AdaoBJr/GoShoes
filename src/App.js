@@ -1,8 +1,17 @@
-import './App.css';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import Home from './common/Pages/Home';
+import Favorited from './common/Pages/Favorited';
+import Cart from './common/Pages/Cart';
 
 function App() {
   return (
-    <div />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/favoritos" component={Favorited} />
+      <Route exact path="/carrinho" component={Cart} />
+    </Switch>
   );
 }
 
