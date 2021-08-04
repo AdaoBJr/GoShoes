@@ -4,8 +4,8 @@ export default function Favorited() {
   return (
     <>
       {/* <!--========== FAVORITOS ==========--> */}
-      <section className="share section bd-container" id="share">
-        <div className="share__container bd-grid">
+      <section className="share section bdContainer" id="share">
+        <div className="share__container bdGrid">
           <div className="share__data">
             <h2 className="section-title-center">
               Sharing Is The Best Gift
