@@ -19,11 +19,11 @@ export default function Home() {
       {/* <!--========== HEADER ==========--> */}
       <Header />
 
-      <main className="l-main">
+      <main className="main">
         {/* <!--========== HOME ==========--> INSERIR AQUI 3D */}
         <section className="home" id="home">
-          <div className="home__container bd-grid">
-            <div className="home__img">
+          <div className="homeContainer bdGrid">
+            <div className="homeImg">
               <img src={img1} alt="img-1" data-speed="-2" className="move" />
               <img src={img2} alt="img-2" data-speed="2" className="move" />
               <img src={img3} alt="img-3" data-speed="2" className="move" />
@@ -32,21 +32,21 @@ export default function Home() {
               <img src={img6} alt="img-6" data-speed="2" className="move" />
             </div>
 
-            <div className="home__data">
-              <h1 className="home__title">
+            <div className="homeData">
+              <h1 className="homeTitle">
                 Go
                 <br />
                 {' '}
                 Shoes
               </h1>
-              <p className="home__description">
+              <p className="homeDescription">
                 Let`s shop?
                 {' '}
                 <br />
                 {' '}
                 Let`s GoShoes.
               </p>
-              <a href className="home__button">Get Started</a>
+              <a href className="homeButton">Get Started</a>
             </div>
           </div>
         </section>
@@ -56,12 +56,12 @@ export default function Home() {
       </main>
       {/* <!--========== FOOTER ==========--> */}
       <footer className="footer section">
-        <div className="footer__container bd-container bd-grid">
-          <div className="footer__content">
-            <h3 className="footer__title">
-              <a href className="footer__logo">Christmas Gift</a>
+        <div className="footerContainer bdContainer bdGrid">
+          <div className="footerContent">
+            <h3 className="footerTitle">
+              <a href className="footerLogo">Christmas Gift</a>
             </h3>
-            <p className="footer__description">
+            <p className="footerDescription">
               I sent a gift and it gives
               {' '}
               <br />
@@ -70,33 +70,33 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="footer__content">
-            <h3 className="footer__title">Our Services</h3>
+          <div className="footerContent">
+            <h3 className="footerTitle">Our Services</h3>
             <ul>
-              <li><a href className="footer__link">Pricing </a></li>
-              <li><a href className="footer__link">Discounts</a></li>
-              <li><a href className="footer__link">Shipping mode</a></li>
+              <li><a href className="footerLink">Pricing </a></li>
+              <li><a href className="footerLink">Discounts</a></li>
+              <li><a href className="footerLink">Shipping mode</a></li>
             </ul>
           </div>
 
-          <div className="footer__content">
-            <h3 className="footer__title">Our Company</h3>
+          <div className="footerContent">
+            <h3 className="footerTitle">Our Company</h3>
             <ul>
-              <li><a href className="footer__link">Blog</a></li>
-              <li><a href className="footer__link">About us</a></li>
-              <li><a href className="footer__link">Our mision</a></li>
+              <li><a href className="footerLink">Blog</a></li>
+              <li><a href className="footerLink">About us</a></li>
+              <li><a href className="footerLink">Our mision</a></li>
             </ul>
           </div>
 
-          <div className="footer__content">
-            <h3 className="footer__title">Social</h3>
-            <SiFacebook className="footer__social" />
-            <SiTwitter className="footer__social" />
-            <SiInstagram className="footer__social" />
+          <div className="footerContent">
+            <h3 className="footerTitle">Social</h3>
+            <SiFacebook className="footerSocial" />
+            <SiTwitter className="footerSocial" />
+            <SiInstagram className="footerSocial" />
           </div>
         </div>
 
-        <p className="footer__copy">&#169; 2021 AdamBJr. All right reserved</p>
+        <p className="footerCopy">&#169; 2021 AdamBJr. All right reserved</p>
       </footer>
     </div>
   );
