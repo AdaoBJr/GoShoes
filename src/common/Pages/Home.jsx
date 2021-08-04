@@ -1,13 +1,11 @@
 import React from 'react';
+import ScrollTop from '../Components/ScrollTop';
 
 export default function Home() {
   return (
     <div>
       {/* <!--========== SCROLL TOP ==========--> */}
-      <a href className="scrolltop" id="scroll-top">
-        <i className="bx bx-up-arrow-alt scrolltop__icon" />
-      </a>
-
+      <ScrollTop />
       {/* <!--========== HEADER ==========--> */}
       <header className="l-header" id="header">
         <nav className="nav bd-container">
