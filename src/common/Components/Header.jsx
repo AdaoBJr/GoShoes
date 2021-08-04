@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { BiToggleLeft, BiToggleRight } from 'react-icons/bi';
-import Favoritos from '../Pages/Favoritos';
+import Favoritos from '../Pages/Favorited';
 
 export default function Header() {
   return (
