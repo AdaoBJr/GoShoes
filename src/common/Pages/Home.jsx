@@ -4,14 +4,31 @@ import { SiFacebook, SiTwitter, SiInstagram } from 'react-icons/si';
 import Header from '../Components/Header';
 import ScrollTop from '../Components/ScrollTop';
 import Shoes from '../Components/Shoes';
+import img101 from '../../images/img1-1.png';
 import img1 from '../../images/img1.png';
 import img2 from '../../images/img2.png';
 import img3 from '../../images/img3.png';
 import img4 from '../../images/img4.png';
-import img5 from '../../images/img5.png';
 import img6 from '../../images/img6.png';
 
 export default function Home() {
+  /*= ==== MOUSEMOVE HOME IMG ===== */
+  const move = (e) => {
+    document.querySelectorAll('.move').forEach((layer) => {
+      const speed = layer.getAttribute('data-speed');
+
+      const x = (window.innerWidth - e.pageX * speed) / 120;
+      const y = (window.innerHeight - e.pageY * speed) / 120;
+
+      // eslint-disable-next-line no-param-reassign
+      layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+  };
+  document.addEventListener('mousemove', move);
+  // ---------------------------------------------------------------------------------------------
+  // CICLOS DE VIDA
+
+  // ---------------------------------------------------------------------------------------------
   return (
     <div>
       {/* <!--========== SCROLL TOP ==========--> */}
@@ -24,16 +41,13 @@ export default function Home() {
         <section className="home" id="home">
           <div className="homeContainer bdGrid">
             <div className="homeImg">
-              <img src={img1} alt="img-1" data-speed="-2" className="imgs move" />
-              <img src={img2} alt="img-2" data-speed="2" className="imgs move" />
-              <img src={img4} alt="img-4" data-speed="-2" className="imgs move" />
-              <img src={img5} alt="img-5" data-speed="-2" className="imgs move" />
-              {/* <div className="homeImg2"> */}
-              <img src={img3} alt="img-3" data-speed="2" className="img3 move" />
+              <img src={img101} alt="img-1" data-speed="-2" className="imgs move" />
+              <img src={img1} alt="img-1" data-speed="7" className="imgs move" />
+              <img src={img2} alt="img-2" data-speed="-4" className="imgs move" />
+              <img src={img4} alt="img-4" data-speed="3" className="imgs move" />
+              <img src={img3} alt="img-3" data-speed="-5" className="img3 move" />
               <img src={img6} alt="img-6" data-speed="2" className="img6 move" />
-              {/* </div> */}
             </div>
-
             <div className="homeData">
               <h1 className="homeTitle">
                 Go

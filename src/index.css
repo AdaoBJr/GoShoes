@@ -273,16 +273,6 @@ img{
   height: 233px;
 }
 
-.homeImg2 {
-  width: 250px;
-}
-
-/* .homeImg img {
-  position: absolute;
-  top: 0;
-  left: 0;
-} */
-
 .imgs {
   position: absolute;
   top: 0;
@@ -292,19 +282,21 @@ img{
 
 .img3 {
   position: relative;
-  top: 8rem;
-  left: -7rem;
-  /* width: 90%; */
+  /* top: 8rem;
+  left: -7rem; */
+  top: 6rem;
+  left: -4rem;
   transform: rotate(15deg);
   filter: drop-shadow(5px 10px 15px rgba(65,11,16,.15));
 }
 
 .img6 {
   position: relative;
-  /* top: -7rem; */
-  left: 5rem;
+  /* top: -9rem;
+  left: 5rem; */
+  top: -12rem;
+  left: 4rem;
   width: 70%;
-  transform: rotate(15deg);
   filter: drop-shadow(5px 10px 15px rgba(65,11,16,.15));
 }
 
@@ -585,7 +577,7 @@ img{
   }
 
   .img3 {
-    top: -3rem;
+    top: -8rem;
   }
 
   .homeContainer,
