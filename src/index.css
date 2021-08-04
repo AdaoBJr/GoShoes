@@ -257,4 +257,118 @@ img{
   bottom: 1.5rem;
 }
 
+/*========== HOME ==========*/
+.homeContainer{
+  row-gap: .5rem;
+}
+
+.homeImg{
+  width: 280px;
+  justify-self: center;
+}
+
+.homeTitle{
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--mb-2);
+}
+
+.homeDescription{
+  margin-bottom: var(--mb-3);
+}
+
+/*========== BUTTONS ==========*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: .5rem;
+  font-weight: var(--font-semi-bold);
+  transition: .3s;
+}
+
+.button:hover{
+  background-color: var(--first-color-alt);
+}
+
+.buttonLink{
+  background: none;
+  padding: 0;
+  color: var(--first-color);
+}
+
+.buttonLink:hover{
+  background-color: transparent;
+  color: var(--first-color-alt);
+}
+
+/*========== SHARE ==========*/
+.FavoritedData{
+  text-align: center;
+}
+
+.FavoritedDescription{
+  margin-bottom: var(--mb-2);
+}
+
+.FavoritedImg{
+  width: 280px;
+  justify-self: center;
+}
+
+/*========== SHOES ==========*/
+.shoesContainer{
+  grid-template-columns: repeat(2,1fr);
+  padding-bottom: 2rem;
+}
+
+.shoesContent{
+  position: relative;
+  display: grid;
+  padding: .25rem .75rem .75rem;
+  background-color: var(--container-color);
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
+  border-radius: 1rem;
+}
+
+.shoesContent:hover{
+  box-shadow: 0 3px 12px rgba(65,11,16,.15);
+}
+
+.shoesImg{
+  width: 110px;
+  justify-self: center;
+  margin-bottom: .25rem;
+}
+
+.shoesTitle, .shoesCategory{
+  text-align: center;
+}
+
+.shoesTitle{
+  font-size: var(--normal-font-size);
+}
+
+.shoesCategory{
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-1);
+  color: var(--text-color-light);
+}
+
+.shoesPreci{
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.shoesButton{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  font-size: 1.25rem;
+  padding: .5rem .625rem;
+  border-radius: 1rem 0 1rem 0;
+}
+
 
