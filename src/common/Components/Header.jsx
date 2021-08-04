@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { BiToggleLeft, BiToggleRight } from 'react-icons/bi';
-import Favoritos from '../Pages/Favorited';
 
 export default function Header() {
   return (
@@ -14,10 +13,9 @@ export default function Header() {
 
           <div className="navMenu" id="nav-menu">
             <ul className="navList">
-              <li className="navItem"><a href="#home" className="navLink activeLink">Home</a></li>
-              <li className="navItem"><Link to={Favoritos} className="navLink">Favoritos</Link></li>
-              <li className="navItem"><a href="#decoration" className="navLink">Decorations</a></li>
-              <li className="navItem"><a href="#accessory" className="navLink">Accessory</a></li>
+              <li className="navItem"><Link to="/" className="navLink activeLink">Home</Link></li>
+              <li className="navItem"><Link to="/favoritos" className="navLink">Favoritos</Link></li>
+              <li className="navItem"><Link to="/carrinho" className="navLink">Carrinho</Link></li>
 
               <li className="changeTheme" id="theme-button"><BiToggleLeft /></li>
             </ul>
