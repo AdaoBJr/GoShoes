@@ -34,6 +34,8 @@
   --mb-4: 2rem;
   --mb-5: 2.5rem;
   --mb-6: 3rem;
+  --mb-7: 5rem;
+  --mb-8: 8rem;
   /*========== z index ==========*/
 
   --z-tooltip: 10;
@@ -111,19 +113,33 @@ img{
 }
 
 /*========== CLASS CSS ==========*/
-.section{
+.section {
   padding: 4rem 0 2rem;
 }
 
-.sectionTitle, .sectionTitleCenter{
+.sectionTitle {
+  position: relative;
   font-size: var(--h2-font-size);
   color: var(--title-color);
   text-align: center;
-  margin-bottom: var(--mb-3);
+  margin-top: var(--mb-8);
+  margin-bottom: var(--mb-5);
+}
+
+.sectionTitle::after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: .22rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 2.5rem;
+  background-color: var(--first-color);
 }
 
 /*========== LAYOUT ==========*/
-.main{
+.main {
   overflow: hidden;
 }
 
@@ -330,6 +346,7 @@ img{
   height: calc(100vh - 13rem);
   grid-template-rows: repeat(2, max-content);
   row-gap: 1.5rem;
+  margin-bottom: var(--mb-7);
 }
 
 .homeImg {
@@ -558,8 +575,7 @@ img{
     padding-top: 0rem;
   }
 
-  .sectionTitleCenter,
-  .FavoritedData{
+  .FavoritedData {
     text-align: initial;
   }
 
