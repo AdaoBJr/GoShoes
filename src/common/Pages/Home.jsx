@@ -37,7 +37,7 @@ export default function Home() {
       <Header />
 
       <main className="main">
-        {/* <!--========== HOME ==========--> INSERIR AQUI 3D */}
+        {/* <!--========== HOME ==========--> */}
         <section className="home" id="home">
           <div className="homeContainer bdGrid">
             <div className="homeImg">

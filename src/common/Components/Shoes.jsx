@@ -7,11 +7,13 @@ export default function Shoes() {
       {/* <!--========== COLEÇÕES ==========--> */}
       <section className="shoes section bdContainer" id="shoes">
         <h2 className="sectionTitle">
-          New Christmas
+          Novas Coleções
           {' '}
           <br />
+          <br />
+          <br />
           {' '}
-          Accessories
+          Calçados e Acessórios
         </h2>
 
         <div className="shoesContainer bdGrid">

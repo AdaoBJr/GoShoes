@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ALink from 'react-anchor-link-smooth-scroll';
 
 import { BiToggleLeft, BiToggleRight } from 'react-icons/bi';
 
@@ -14,6 +15,7 @@ export default function Header() {
           <div className="navMenu" id="nav-menu">
             <ul className="navList">
               <li className="navItem"><Link to="/" className="navLink activeLink">Home</Link></li>
+              <li className="navItem"><ALink href="#shoes" className="navLink">Coleções</ALink></li>
               <li className="navItem"><Link to="/favoritos" className="navLink">Favoritos</Link></li>
               <li className="navItem"><Link to="/carrinho" className="navLink">Carrinho</Link></li>
 

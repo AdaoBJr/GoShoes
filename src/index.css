@@ -260,7 +260,7 @@ img{
 /*========== HOME ==========*/
 
 .homeContainer {
-  height: calc(100vh - var(--header-height));
+  height: calc(100vh - 13rem);
   grid-template-rows: repeat(2, max-content);
   row-gap: 1.5rem;
 }
@@ -480,7 +480,7 @@ img{
   }
 
   .section{
-    padding-top: 7rem;
+    padding-top: 0rem;
   }
 
   .sectionTitleCenter,
