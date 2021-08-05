@@ -7,7 +7,7 @@ export default function Favorited() {
       <section className="share section bdContainer" id="share">
         <div className="FavoritedContainer bdGrid">
           <div className="FavoritedData">
-            <h2 className="sectionTitleCenter">
+            <h2>
               Sharing Is The Best Gift
               {' '}
               <br />
