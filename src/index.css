@@ -69,14 +69,13 @@ body.darkTheme{
 }
 
 /*========== Button Dark/Light ==========*/
-.changeTheme{
+.changeTheme {
   position: absolute;
   right: 1.5rem;
   top: 2.2rem;
   display: flex;
   color: var(--title-color);
   font-size: 2rem;
-  cursor: pointer;
 }
 
 body{
@@ -150,7 +149,7 @@ img{
 }
 
 /*========== NAV ==========*/
-.nav{
+.nav {
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
@@ -158,7 +157,7 @@ img{
 }
 
 @media screen and (max-width: 768px){
-  .navMenu{
+  .navMenu {
     position: fixed;
     top: -100%;
     left: 0;
@@ -175,43 +174,111 @@ img{
   }
 }
 
-.navItem{
+.navItem {
   margin-bottom: var(--mb-3);
 }
 
-.navLink, .navLogo, .navToggle{
+.navLink, .navLogo {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
 }
 
-.navLogo:hover{
+.navLogo:hover {
   color: var(--first-color);
 }
 
-.navLink{
+.navLink {
   transition: .3s;
 }
 
-.navLink:hover{
+.navLink:hover {
   color: var(--first-color);
 }
 
-.navToggle{
-  font-size: 1.3rem;
+.icon {
+  opacity: 1;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  width: 40px;
+  height: 25px;
+  z-index: 1;
   cursor: pointer;
 }
 
+.hamburguer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 2px;
+  border-radius: 1rem;
+  background-color: var(--title-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.hamburguer:before {
+  content: '';
+  position: absolute;
+  margin-top: 20%;
+  right: 0;
+  top: -12px;
+  width: 27px;
+  height: 2px;
+  border-radius: 1rem;
+  background-color: var(--title-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.hamburguer:after {
+  content: '';
+  position: absolute;
+  margin-top: -20%;
+  right: 0;
+  top: 12px;
+  width: 27px;
+  height: 2px;
+  border-radius: 1rem;
+  background-color: var(--title-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.iconActive .hamburguer {
+  background: transparent;
+  box-shadow: 0 2px 5px transparent;
+}
+
+.iconActive .hamburguer:before {
+  top: -6px;
+  background-color: var(--title-color);
+  transform: rotate(225deg);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.iconActive .hamburguer:after {
+  top: 2px;
+  background-color: var(--title-color);
+  transform: rotate(135deg);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
 /* Show menu */
-.showMenu{
+.show {
   top: calc(var(--header-height) + 1rem);
 }
 
 /* Active menu link */
-.activeLink{
+.activeLink {
   position: relative;
 }
 
-.activeLink::before{
+.activeLink::before {
   content: '';
   position: absolute;
   bottom: -.75rem;
@@ -470,6 +537,10 @@ img{
 @media screen and (min-width: 768px){
   body{
     margin: 0;
+  }
+
+  .icon {
+    opacity: 0;
   }
 
   .homeContainer,
