@@ -123,11 +123,11 @@ img{
   font-size: var(--h2-font-size);
   color: var(--title-color);
   text-align: center;
-  margin-top: var(--mb-8);
+  margin-top: var(--mb-5);
   margin-bottom: var(--mb-5);
 }
 
-.sectionTitle::after {
+.sectionTitle:after, .collectionTitle::after {
   position: absolute;
   content: "";
   width: 80px;
@@ -137,6 +137,14 @@ img{
   margin: auto;
   top: 2.5rem;
   background-color: var(--first-color);
+}
+
+.collectionTitle {
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: var(--mb-5);
 }
 
 /*========== LAYOUT ==========*/
@@ -346,6 +354,7 @@ img{
 
 .home {
   background-color: var(--first-color-darken);
+  padding-bottom: var(--mb-2);
 }
 
 .homeContainer {
@@ -386,7 +395,6 @@ img{
   filter: drop-shadow(5px 10px 15px rgba(65,11,16,.15));
 }
 
-
 .homeData {
   margin-top: var(--mb-6);
   margin-left: var(--mb-3);
@@ -426,18 +434,21 @@ img{
 }
 
 /*========== BUTTONS ==========*/
-.button{
+.button {
   display: inline-block;
   background-color: var(--first-color);
-  color: #fff;
+  color: #FFF;
   padding: 1rem 1.5rem;
   border-radius: .5rem;
   font-weight: var(--font-semi-bold);
-  transition: .3s;
+  transition: .5s;
+  cursor: pointer;
 }
 
-.button:hover{
-  background-color: var(--first-color-dark);
+.button:hover {
+  background-color: var(--container-color);
+  box-shadow: 0 2px 6px 4px rgba(65,11,16,.15);
+  color: var(--first-color);
 }
 
 .buttonLink{
@@ -466,12 +477,12 @@ img{
 }
 
 /*========== SHOES ==========*/
-.shoesContainer{
+.shoesContainer {
   grid-template-columns: repeat(2,1fr);
   padding-bottom: 2rem;
 }
 
-.shoesContent{
+.shoesContent {
   position: relative;
   display: grid;
   padding: .25rem .75rem .75rem;
@@ -480,36 +491,36 @@ img{
   border-radius: 1rem;
 }
 
-.shoesContent:hover{
+.shoesContent:hover {
   box-shadow: 0 3px 12px rgba(65,11,16,.15);
 }
 
-.shoesImg{
+.shoesImg {
   width: 110px;
   justify-self: center;
   margin-bottom: .25rem;
 }
 
-.shoesTitle, .shoesCategory{
+.shoesTitle, .shoesCategory {
   text-align: center;
 }
 
-.shoesTitle{
+.shoesTitle {
   font-size: var(--normal-font-size);
 }
 
-.shoesCategory{
+.shoesCategory {
   font-size: var(--small-font-size);
   margin-bottom: var(--mb-1);
   color: var(--text-color-light);
 }
 
-.shoesPreci{
+.shoesPreci {
   font-weight: var(--font-semi-bold);
   color: var(--title-color);
 }
 
-.shoesButton{
+.shoesButton {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -574,6 +585,10 @@ img{
     opacity: 0;
   }
 
+  .home {
+    padding-bottom: 0;
+  }
+
   .homeContainer,
   .FavoritedContainer,
   .FavoritedContainer{
@@ -583,6 +598,10 @@ img{
 
   .section{
     padding-top: 0rem;
+  }
+
+  .sectionTitle {
+    margin-top: var(--mb-8);
   }
 
   .FavoritedData {
