@@ -1,4 +1,5 @@
 import React from 'react';
+import ALink from 'react-anchor-link-smooth-scroll';
 import { SiFacebook, SiTwitter, SiInstagram } from 'react-icons/si';
 
 import Header from '../Components/Header';
@@ -59,7 +60,7 @@ export default function Home() {
                 {' '}
                 Let`s GoShoes.
               </p>
-              <a href className="homeButton">Get Started</a>
+              <ALink href="#shoes" className="homeButton">Get Started</ALink>
             </div>
           </div>
         </section>
