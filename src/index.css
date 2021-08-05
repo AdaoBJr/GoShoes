@@ -349,8 +349,6 @@ img{
 
 .img3 {
   position: relative;
-  /* top: 8rem;
-  left: -7rem; */
   top: 6rem;
   left: -4rem;
   transform: rotate(15deg);
@@ -359,8 +357,6 @@ img{
 
 .img6 {
   position: relative;
-  /* top: -9rem;
-  left: 5rem; */
   top: -12rem;
   left: 4rem;
   width: 70%;
@@ -369,6 +365,8 @@ img{
 
 
 .homeData {
+  margin-top: var(--mb-6);
+  margin-left: var(--mb-3);
   color: var(--title-color);
 }
 
@@ -380,14 +378,20 @@ img{
 
 .homeDescription {
   margin-bottom: var(--mb-3);
+  font-weight: var(--font-semi-bold);
+  font-size: var(--h2-font-size);
 }
 
 .homeButton {
   display: inline-block;
   background-color: var(--first-color-dark);
   color: var(--container-color);
+  font-weight: var(--font-semi-bold);
+  font-size: var(--h3-font-size);
   padding: 1.125rem 2rem;
   border-radius: .5rem;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .homeButton:hover {

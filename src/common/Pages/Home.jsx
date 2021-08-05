@@ -50,10 +50,7 @@ export default function Home() {
             </div>
             <div className="homeData">
               <h1 className="homeTitle">
-                Go
-                <br />
-                {' '}
-                Shoes
+                GoShoes
               </h1>
               <p className="homeDescription">
                 Let`s shop?
