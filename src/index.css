@@ -10,6 +10,7 @@
   --first-color-dark: #C42130;
   --first-color-darken: #DE3B49;
   --title-color: #161212;
+  --title-home-color: #5361FF;
   --text-color: #5B5757;
   --text-color-light: #8F8A8A;
   --body-color: #FEFBFB;
@@ -342,6 +343,10 @@ img{
 
 /*========== HOME ==========*/
 
+.home {
+  background-color: var(--first-color-darken);
+}
+
 .homeContainer {
   height: calc(100vh - 13rem);
   grid-template-rows: repeat(2, max-content);
@@ -384,24 +389,26 @@ img{
 .homeData {
   margin-top: var(--mb-6);
   margin-left: var(--mb-3);
-  color: var(--title-color);
+  color: var(--container-color);
 }
 
 .homeTitle {
   font-size: var(--biggest-font-size);
   font-weight: var(--font-bold);
   margin-bottom: var(--mb-2);
+  color: var(--title-home-color);
+  text-shadow: 0 8px 12px rgba(0,0,0,.5);
 }
 
 .homeDescription {
   margin-bottom: var(--mb-3);
   font-weight: var(--font-semi-bold);
   font-size: var(--h2-font-size);
+  text-shadow: 0 6px 25px rgba(0,0,0,.5);
 }
 
 .homeButton {
-  display: inline-block;
-  background-color: var(--first-color-dark);
+  background-color: var(--title-home-color);
   color: var(--container-color);
   font-weight: var(--font-semi-bold);
   font-size: var(--h3-font-size);
@@ -412,7 +419,9 @@ img{
 }
 
 .homeButton:hover {
-  background-color: var(--first-color-darken);
+  color: var(--title-color);
+  box-shadow: 0 4px 10px rgba(239, 236, 244, 0.447),
+              0 -4px 10px rgba(239, 236, 244, 0.447);
 }
 
 /*========== BUTTONS ==========*/
@@ -591,10 +600,6 @@ img{
   .navItem{
     margin-left: var(--mb-5);
     margin-bottom: 0;
-  }
-
-  .navToggle{
-    display: none;
   }
 
   .changeTheme{
