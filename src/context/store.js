@@ -11,6 +11,7 @@ export const PRODUCTS = {
   fetchOn: true,
   loading: undefined,
   done: undefined,
+  allProducts: [],
   products: [],
 };
 
@@ -30,6 +31,6 @@ export default store;
 
 // USER
 export const ADD_PRODUCTS = 'ADD_PRODUCTS'; // ACTION -> ADD_PRODUCTS
-export const addProducts = (products) => ({ // ACTION-CREATOR -> ADD_PRODUCTS
-  type: ADD_PRODUCTS, payload: { products },
+export const addProducts = (allProducts, products) => ({ // ACTION-CREATOR -> ADD_PRODUCTS
+  type: ADD_PRODUCTS, payload: { allProducts, products },
 });
