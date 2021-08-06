@@ -54,16 +54,16 @@
 }
 
 /*========== BASE ==========*/
-*,::before,::after{
+*,::before,::after {
   box-sizing: border-box;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
 /*========== Variables Dark theme ==========*/
-body.darkTheme{
+body.darkTheme {
   --first-color-darken: #161212;
   --title-color: #F3F1F1;
   --text-color: #D1C7C8;
@@ -521,7 +521,7 @@ img{
   color: var(--title-color);
 }
 
-.shoesButton {
+.favoritedButton {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -529,7 +529,85 @@ img{
   font-size: 1.25rem;
   padding: .5rem .625rem;
   border-radius: 1rem 0 1rem 0;
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
 }
+
+.addRemoveButtons {
+  position: absolute;
+  right: 0;
+  bottom: 3.5rem;
+  opacity: 1;
+}
+
+.addButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  font-size: 1.20rem;
+  padding: .5rem .625rem;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.removeButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 3rem;
+  font-size: 1.20rem;
+  padding: .5rem .625rem;
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: 0 -2px 6px rgba(65,11,16,.15);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.addButton, .removeButton {
+  /* background-color: var(--title-home-color);
+  color: var(--container-color); */
+  background-color: transparent;
+}
+
+.addButton:hover, .removeButton:hover {
+  color: var(--container-color);
+  background-color: var(--title-home-color);
+  /* color:var(--text-color);
+  background-color: var(--container-color); */
+}
+
+
+.cartItems {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--first-color);
+  color: var(--container-color);
+  width: 2.45rem;
+  height: 2.3rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: var(--z-fixed);
+}
+
+.numberItems {
+  font-size: 80%;
+  display: flex;
+  justify-content:center;
+  width: .9rem;
+  height: 1.2rem;
+  border-radius: 40px;
+}
+
+
 
 /*========== FOOTER ==========*/
 .footerContainer{
@@ -655,7 +733,7 @@ img{
     justify-content: center;
   }
 
-  .shoesContent{
+  .shoesContent {
     padding: .5rem 1.5rem 1.5rem;
   }
 
@@ -668,7 +746,29 @@ img{
     text-align: initial;
   }
 
-  .shoesButton{
+  .addRemoveButtons {
+    opacity: 0;
+  }
+
+  .shoesContent:hover .addRemoveButtons {
+    opacity: 1;
+    animation-duration: .5s;
+    animation-name: animate-buttons;
+  }
+
+  @keyframes animate-buttons {
+    0%{
+      transform: scale(1,1);
+    }
+    50%{
+      transform: scale(1.1,1.1);
+    }
+    100%{
+      transform: scale(1,1);
+    }
+  }
+
+  .favoritedButton{
     padding: .75rem;
   }
 

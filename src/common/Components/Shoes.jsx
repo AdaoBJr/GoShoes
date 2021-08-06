@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import {
+  FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
+} from 'react-icons/fa';
 import img6 from '../../images/img6.png';
 
 export default function Shoes() {
@@ -24,7 +26,7 @@ export default function Shoes() {
             <span className="shoesPreci">$9.45</span>
             <div
               aria-hidden
-              className="button shoesButton"
+              className="button favoritedButton"
               onClick={() => setHeart(!fullHeart)}
             >
               {(fullHeart) ? <FaHeart /> : <FaRegHeart /> }
@@ -36,9 +38,27 @@ export default function Shoes() {
             <h3 className="shoesTitle">Candy</h3>
             <span className="shoesCategory">shoes</span>
             <span className="shoesPreci">$2.52</span>
+            <div className="addRemoveButtons">
+              <div
+                aria-hidden
+                className="removeButton"
+              >
+                <FaMinus />
+              </div>
+              <div className="cartItems">
+                <FaShoppingCart />
+                <div className="numberItems">3</div>
+              </div>
+              <div
+                aria-hidden
+                className="addButton"
+              >
+                <FaPlus />
+              </div>
+            </div>
             <div
               aria-hidden
-              className="button shoesButton"
+              className="button favoritedButton"
               onClick={() => setHeart(!fullHeart)}
             >
               {(fullHeart) ? <FaHeart /> : <FaRegHeart /> }
@@ -52,7 +72,7 @@ export default function Shoes() {
             <span className="shoesPreci">$13.15</span>
             <div
               aria-hidden
-              className="button shoesButton"
+              className="button favoritedButton"
               onClick={() => setHeart(!fullHeart)}
             >
               {(fullHeart) ? <FaHeart /> : <FaRegHeart /> }
@@ -66,7 +86,7 @@ export default function Shoes() {
             <span className="shoesPreci">$4.25</span>
             <div
               aria-hidden
-              className="button shoesButton"
+              className="button favoritedButton"
               onClick={() => setHeart(!fullHeart)}
             >
               {(fullHeart) ? <FaHeart /> : <FaRegHeart /> }
@@ -80,7 +100,7 @@ export default function Shoes() {
             <span className="shoesPreci">$7.99</span>
             <div
               aria-hidden
-              className="button shoesButton"
+              className="button favoritedButton"
               onClick={() => setHeart(!fullHeart)}
             >
               {(fullHeart) ? <FaHeart /> : <FaRegHeart /> }
