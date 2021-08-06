@@ -4,6 +4,7 @@
 /*===== VARIABLES CSS =====*/
 :root {
   --header-height: 3rem;
+  --heart-height: 45px;
 
   /*========== Colors ==========*/
   --first-color: #DA2535;
@@ -463,42 +464,27 @@ img{
   color: var(--first-color-dark);
 }
 
-/*========== SHARE ==========*/
-.FavoritedData{
-  text-align: center;
-}
-
-.FavoritedDescription{
-  margin-bottom: var(--mb-2);
-}
-
-.FavoritedImg{
-  width: 280px;
-  justify-self: center;
-}
-
 /*========== SHOES ==========*/
 .shoesContainer {
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(1,1fr);
   padding-bottom: 2rem;
+  margin: 0 2rem;
 }
 
 .shoesContent {
   position: relative;
   display: grid;
-  padding: .25rem .75rem .75rem;
+  height: 20rem;
+  padding: 0.50rem 2.2rem 0rem 1rem;
   background-color: var(--container-color);
   box-shadow: 0 2px 6px rgba(65,11,16,.15);
   border-radius: 1rem;
   cursor: pointer;
 }
 
-.shoesContent:hover {
-  box-shadow: 0 3px 12px rgba(65,11,16,.15);
-}
-
 .shoesImg {
-  width: 110px;
+  width: 200px;
+  max-height: 200px;
   justify-self: center;
   margin-bottom: .25rem;
 }
@@ -518,8 +504,12 @@ img{
 }
 
 .shoesPreci {
+  padding-top: 0.5rem;
+  font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
+  text-align: center;
   color: var(--title-color);
+  border-top: 1px solid var(--text-color-light);
 }
 
 .favoritedButton {
@@ -528,7 +518,8 @@ img{
   right: 0;
   display: flex;
   font-size: 1.25rem;
-  padding: .5rem .625rem;
+  height: var(--heart-height);
+  padding: .75rem;
   border-radius: 1rem 0 1rem 0;
   box-shadow: 0 2px 6px rgba(65,11,16,.15);
 }
@@ -536,7 +527,7 @@ img{
 .addRemoveButtons {
   position: absolute;
   right: 0;
-  bottom: 3.5rem;
+  bottom: 4.5rem;
   opacity: 1;
 }
 
@@ -546,13 +537,13 @@ img{
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: 3rem;
+  height: 4rem;
   font-size: 1.20rem;
   padding: .5rem .625rem;
   border-radius: 0 0 1rem 1rem;
   box-shadow: 0 2px 6px rgba(65,11,16,.15);
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .removeButton {
@@ -561,39 +552,31 @@ img{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 3rem;
+  height: 4rem;
   font-size: 1.20rem;
   padding: .5rem .625rem;
   border-radius: 1rem 1rem 0 0;
   box-shadow: 0 -2px 6px rgba(65,11,16,.15);
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-.addButton, .removeButton {
-  /* background-color: var(--title-home-color);
-  color: var(--container-color); */
-  background-color: transparent;
-}
-
-.addButton:hover, .removeButton:hover {
+.addButton:active, .removeButton:active {
   color: var(--container-color);
   background-color: var(--title-home-color);
-  /* color:var(--text-color);
-  background-color: var(--container-color); */
 }
 
 
 .cartItems {
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--first-color);
   color: var(--container-color);
   width: 2.45rem;
-  height: 2.3rem;
+  height: 2.7rem;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: var(--z-fixed);
@@ -714,32 +697,28 @@ img{
 
   .homeImg{
     order: 1;
-  }
-
-  .homeImg,
-  .FavoritedImg{
     width: 100%;
   }
 
-  .FavoritedImg{
-    order: -1;
-  }
+  /*========== SHOES ==========*/
 
-  .FavoritedContainer{
-    padding: 0 2rem;
-  }
-
-  .shoesContainer{
-    grid-template-columns: repeat(3,224px);
+  .shoesContainer {
+    grid-template-columns: repeat(2,1fr);
     justify-content: center;
   }
 
   .shoesContent {
-    padding: .5rem 1.5rem 1.5rem;
+    height: max-content;
+    padding: .5rem 1.5rem;
   }
 
-  .shoesImg{
+  .shoesContent:hover {
+    box-shadow: 0 3px 12px rgba(65,11,16,.15);
+  }
+
+  .shoesImg {
     width: 120px;
+    height: 120px;
     margin-bottom: var(--mb-1);
   }
 
@@ -747,14 +726,40 @@ img{
     text-align: initial;
   }
 
+  .shoesPreci {
+    margin: var(--mb-1) 0;
+    font-size: var(--h3-font-size);
+  }
+
   .addRemoveButtons {
     opacity: 0;
+    bottom: 5rem;
   }
 
   .shoesContent:hover .addRemoveButtons {
     opacity: 1;
     animation-duration: .5s;
     animation-name: animate-buttons;
+  }
+
+  .addButton {
+    height: 3rem;
+    transition: 0.5s;
+  }
+
+  .removeButton {
+    height: 3rem;
+    transition: 0.5s;
+  }
+
+  .addButton:hover, .removeButton:hover {
+  color: var(--container-color);
+  background-color: var(--title-home-color);
+}
+
+  .cartItems {
+    bottom: 2rem;
+    height: 2.3rem;
   }
 
   @keyframes animate-buttons {
@@ -790,8 +795,7 @@ img{
     margin-right: auto;
   }
 
-  .homeImg,
-  .FavoritedImg {
+  .homeImg {
     width: 469px;
   }
 
@@ -799,9 +803,23 @@ img{
     top: -8rem;
   }
 
-  .homeContainer,
-  .FavoritedContainer,
-  .FavoritedContainer {
+  .homeContainer {
     column-gap: 5rem;
+  }
+
+  /*========== SHOES ==========*/
+
+  .shoesContainer {
+    grid-template-columns: repeat(3,224px);
+    column-gap: 4rem;
+    justify-content: center;
+  }
+
+  .shoesContent {
+    width: 17rem;
+  }
+
+  .shoesPreci {
+    margin: var(--mb-2) 0;
   }
 }
