@@ -68,17 +68,21 @@ export default function Shoes() {
     const response = await fetchAPI(CALÇADOS);
     const allProducts = response.results;
     const randomProducts = Math.random() * 100;
-    const numberCards = 10;
+    const numberCards = 9;
     const cardsLimit = randomProducts + numberCards;
+    const excludedProduct = 'kit';
+
+    const productsFiltered = allProducts.filter((product) => (
+      !product.title.toLowerCase().includes(excludedProduct)));
 
     let cardsInitial = 0;
-    if (cardsLimit < allProducts.length) {
+    if (cardsLimit < productsFiltered.length) {
       cardsInitial = cardsLimit - numberCards;
     } else {
-      cardsInitial = allProducts.length - numberCards;
+      cardsInitial = productsFiltered.length - numberCards;
     }
 
-    const newProducts = response.results.slice(cardsInitial, cardsLimit);
+    const newProducts = productsFiltered.slice(cardsInitial, cardsLimit);
     setProducts(addProducts(response.results, newProducts));
   };
 
