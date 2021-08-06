@@ -362,6 +362,7 @@ img{
   grid-template-rows: repeat(2, max-content);
   row-gap: 1.5rem;
   margin-bottom: var(--mb-7);
+  padding-bottom: var(--mb-8);
 }
 
 .homeImg {
@@ -587,6 +588,7 @@ img{
 
   .home {
     padding-bottom: 0;
+    background-size: 460px;
   }
 
   .homeContainer,
