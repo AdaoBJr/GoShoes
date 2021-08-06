@@ -1,4 +1,4 @@
-export const MEALS = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+export const CALÇADOS = 'https://api.mercadolibre.com/sites/MLB/search?category=categoryId&q=tenis';
 
 export const fetchAPI = async (url) => {
   try {
