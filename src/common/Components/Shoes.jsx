@@ -4,14 +4,13 @@ import {
 } from 'react-icons/fa';
 
 import store, { addProducts } from '../../context/store';
-import img6 from '../../images/img6.png';
 import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
-  const { /* products: { products }, */ setProducts } = useContext(store);
+  const { products: { products }, setProducts } = useContext(store);
   const [fullHeart, setHeart] = useState(false);
 
-  const renderProducts = () => (
+  const renderProducts = (Products) => (
     <section className="shoes section bdContainer" id="shoes">
       <h2 className="sectionTitle">
         Calçados e Acessórios
@@ -20,39 +19,47 @@ export default function Shoes() {
       <h2 className="collectionTitle">
         Novas Coleções
       </h2>
-
       <div className="shoesContainer bdGrid">
-        <div className="shoesContent">
-          <img src={img6} alt="" className="shoesImg" />
-          <h3 className="shoesTitle">Candy</h3>
-          <span className="shoesCategory">shoes</span>
-          <span className="shoesPreci">$2.52</span>
-          <div className="addRemoveButtons">
+        {Products.map(({
+          id, title, thumbnail, available_quantity: availableQty, price,
+        }) => (
+          <div className="shoesContent" key={id}>
+            <img src={thumbnail} alt="" className="shoesImg" />
+            <h3 className="shoesTitle">{title}</h3>
+            <span className="shoesCategory">
+              {`Disponível: ${availableQty} und(s)`}
+            </span>
+            <span className="shoesPreci">
+              {`Preço: R$ ${price
+                .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
+            </span>
+            <div className="addRemoveButtons">
+              <div
+                aria-hidden
+                className="removeButton"
+              >
+                <FaMinus />
+              </div>
+              <div className="cartItems">
+                <FaShoppingCart />
+                <div className="numberItems">3</div>
+              </div>
+              <div
+                aria-hidden
+                className="addButton"
+              >
+                <FaPlus />
+              </div>
+            </div>
             <div
               aria-hidden
-              className="removeButton"
+              className="button favoritedButton"
+              onClick={() => setHeart(!fullHeart)}
             >
-              <FaMinus />
-            </div>
-            <div className="cartItems">
-              <FaShoppingCart />
-              <div className="numberItems">3</div>
-            </div>
-            <div
-              aria-hidden
-              className="addButton"
-            >
-              <FaPlus />
+              {(fullHeart) ? <FaHeart /> : <FaRegHeart /> }
             </div>
           </div>
-          <div
-            aria-hidden
-            className="button favoritedButton"
-            onClick={() => setHeart(!fullHeart)}
-          >
-            {(fullHeart) ? <FaHeart /> : <FaRegHeart /> }
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
@@ -82,6 +89,6 @@ export default function Shoes() {
   // ----------------------------------------------------------------------------------------------
 
   return (
-    renderProducts()
+    renderProducts(products)
   );
 }
