@@ -10,6 +10,11 @@ export default function Shoes() {
   const { products: { products }, setProducts } = useContext(store);
   const [fullHeart, setHeart] = useState(false);
 
+  const threeWordsTitle = (title) => {
+    const newName = `${title.split(' ')[0]} ${title.split(' ')[1]} ${title.split(' ')[2]}`;
+    return newName;
+  };
+
   const renderProducts = (Products) => (
     <section className="shoes section bdContainer" id="shoes">
       <h2 className="sectionTitle">
@@ -25,12 +30,12 @@ export default function Shoes() {
         }) => (
           <div className="shoesContent" key={id}>
             <img src={thumbnail} alt="" className="shoesImg" />
-            <h3 className="shoesTitle">{title}</h3>
+            <h3 className="shoesTitle">{threeWordsTitle(title)}</h3>
             <span className="shoesCategory">
               {`Disponível: ${availableQty} und(s)`}
             </span>
             <span className="shoesPreci">
-              {`Preço: R$ ${price
+              {`R$ ${price
                 .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
             </span>
             <div className="addRemoveButtons">
