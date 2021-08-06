@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
 } from 'react-icons/fa';
+
+import store, { addProducts } from '../../context/store';
 import img6 from '../../images/img6.png';
+import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
+  const { /* products: { products }, */ setProducts } = useContext(store);
   const [fullHeart, setHeart] = useState(false);
 
   const renderProducts = () => (
@@ -53,15 +57,31 @@ export default function Shoes() {
     </section>
   );
 
+  const getProducts = async () => {
+    const response = await fetchAPI(CALÇADOS);
+    const allProducts = response.results;
+    const randomProducts = Math.random() * 100;
+    const numberCards = 10;
+    const cardsLimit = randomProducts + numberCards;
+
+    let cardsInitial = 0;
+    if (cardsLimit < allProducts.length) {
+      cardsInitial = cardsLimit - numberCards;
+    } else {
+      cardsInitial = allProducts.length - numberCards;
+    }
+
+    const newProducts = response.results.slice(cardsInitial, cardsLimit);
+    setProducts(addProducts(response.results, newProducts));
+  };
+
   // ----------------------------------------------------------------------------------------------
   // CICLOS DE VIDA
+  useEffect(getProducts, []);
 
   // ----------------------------------------------------------------------------------------------
 
   return (
-    <>
-      {/* <!--========== COLEÇÕES ==========--> */}
-      {renderProducts()}
-    </>
+    renderProducts()
   );
 }
