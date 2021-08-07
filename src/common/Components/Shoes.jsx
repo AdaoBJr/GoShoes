@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
 } from 'react-icons/fa';
 
-import store, { addProducts } from '../../context/store';
+import store, { addProducts, setFav } from '../../context/store';
+import faV from '../../functions';
 import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
-  const { products: { products }, setProducts } = useContext(store);
-  const [fullHeart, setHeart] = useState(false);
+  const { products: { products, favorited }, setProducts } = useContext(store);
 
   const threeWordsTitle = (title) => {
     const newName = `${title.split(' ')[0]} ${title.split(' ')[1]} ${title.split(' ')[2]}`;
@@ -47,7 +47,8 @@ export default function Shoes() {
               </div>
               <div className="cartItems">
                 <FaShoppingCart />
-                <div className="numberItems">3</div>
+                {/* <div className="numberItems">{cart[id].count || 0}</div> */}
+                <div className="numberItems">0</div>
               </div>
               <div
                 aria-hidden
@@ -59,9 +60,9 @@ export default function Shoes() {
             <div
               aria-hidden
               className="button favoritedButton"
-              onClick={() => setHeart(!fullHeart)}
+              onClick={() => setProducts(setFav(faV(id, favorited)))}
             >
-              {(fullHeart) ? <FaHeart /> : <FaRegHeart /> }
+              {(favorited.find((fav) => fav.id === id)) ? <FaHeart /> : <FaRegHeart /> }
             </div>
           </div>
         ))}
