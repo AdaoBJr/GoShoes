@@ -3,12 +3,18 @@ import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
 } from 'react-icons/fa';
 
-import store, { addProducts, setFav } from '../../context/store';
-import faV from '../../functions';
+import store, { addCart, addProducts, setFav } from '../../context/store';
+import { Fav, Cart } from '../../functions';
 import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
-  const { products: { products, favorited }, setProducts } = useContext(store);
+  const { products: { products, favorited, cart }, setProducts } = useContext(store);
+
+  const showQty = (id) => {
+    const product = cart.filter((c) => c.id === id)[0];
+    const qty = (product) ? product.count : 0;
+    return qty;
+  };
 
   const threeWordsTitle = (title) => {
     const newName = `${title.split(' ')[0]} ${title.split(' ')[1]} ${title.split(' ')[2]}`;
@@ -25,47 +31,51 @@ export default function Shoes() {
         Novas Coleções
       </h2>
       <div className="shoesContainer bdGrid">
-        {Products.map(({
-          id, title, thumbnail, available_quantity: availableQty, price,
-        }) => (
-          <div className="shoesContent" key={id}>
-            <img src={thumbnail} alt="" className="shoesImg" />
-            <h3 className="shoesTitle">{threeWordsTitle(title)}</h3>
-            <span className="shoesCategory">
-              {`Disponível: ${availableQty} und(s)`}
-            </span>
-            <span className="shoesPreci">
-              {`R$ ${price
-                .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
-            </span>
-            <div className="addRemoveButtons">
+        {Products.map((product) => {
+          const {
+            id, title, thumbnail, available_quantity: availableQty, price,
+          } = product;
+          return (
+            <div className="shoesContent" key={id}>
+              <img src={thumbnail} alt="" className="shoesImg" />
+              <h3 className="shoesTitle">{threeWordsTitle(title)}</h3>
+              <span className="shoesCategory">
+                {`Disponível: ${availableQty} und(s)`}
+              </span>
+              <span className="shoesPreci">
+                {`R$ ${price
+                  .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
+              </span>
+              <div className="addRemoveButtons">
+                <div
+                  aria-hidden
+                  className="removeButton"
+                  onClick={() => setProducts(addCart(Cart(product, cart, false)))}
+                >
+                  <FaMinus />
+                </div>
+                <div className="cartItems">
+                  <FaShoppingCart />
+                  <div className="numberItems">{ showQty(id) }</div>
+                </div>
+                <div
+                  aria-hidden
+                  className="addButton"
+                  onClick={() => setProducts(addCart(Cart(product, cart, true)))}
+                >
+                  <FaPlus />
+                </div>
+              </div>
               <div
                 aria-hidden
-                className="removeButton"
+                className="button favoritedButton"
+                onClick={() => setProducts(setFav(Fav(id, favorited)))}
               >
-                <FaMinus />
-              </div>
-              <div className="cartItems">
-                <FaShoppingCart />
-                {/* <div className="numberItems">{cart[id].count || 0}</div> */}
-                <div className="numberItems">0</div>
-              </div>
-              <div
-                aria-hidden
-                className="addButton"
-              >
-                <FaPlus />
+                {(favorited.find((fav) => fav.id === id)) ? <FaHeart /> : <FaRegHeart /> }
               </div>
             </div>
-            <div
-              aria-hidden
-              className="button favoritedButton"
-              onClick={() => setProducts(setFav(faV(id, favorited)))}
-            >
-              {(favorited.find((fav) => fav.id === id)) ? <FaHeart /> : <FaRegHeart /> }
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

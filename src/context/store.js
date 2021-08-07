@@ -13,6 +13,7 @@ export const PRODUCTS = {
   done: undefined,
   allProducts: [],
   products: [],
+  cart: [],
   favorited: [],
 };
 
