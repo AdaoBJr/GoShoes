@@ -474,7 +474,7 @@ img{
 .shoesContent {
   position: relative;
   display: grid;
-  height: 20rem;
+  min-height: 20rem;
   padding: 0.50rem 2.2rem 0rem 1rem;
   background-color: var(--container-color);
   box-shadow: 0 2px 6px rgba(65,11,16,.15);
@@ -708,7 +708,6 @@ img{
   }
 
   .shoesContent {
-    height: max-content;
     padding: .5rem 1.5rem;
   }
 
@@ -718,7 +717,6 @@ img{
 
   .shoesImg {
     width: 120px;
-    height: 120px;
     margin-bottom: var(--mb-1);
   }
 
@@ -727,13 +725,13 @@ img{
   }
 
   .shoesPreci {
-    margin: var(--mb-1) 0;
+    margin: var(--mb-2) 0;
     font-size: var(--h3-font-size);
   }
 
   .addRemoveButtons {
     opacity: 0;
-    bottom: 5rem;
+    bottom: 6.5rem;
   }
 
   .shoesContent:hover .addRemoveButtons {
@@ -817,9 +815,5 @@ img{
 
   .shoesContent {
     width: 17rem;
-  }
-
-  .shoesPreci {
-    margin: var(--mb-2) 0;
   }
 }
