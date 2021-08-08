@@ -11,6 +11,7 @@ export const PRODUCTS = {
   fetchOn: true,
   loading: undefined,
   done: undefined,
+  itsHome: true,
   allProducts: [],
   products: [],
   cart: [],
@@ -41,4 +42,9 @@ export const setFav = (favorited) => ({ // ACTION-CREATOR -> SET_FAVORITE
 export const ADD_CART = 'ADD_CART'; // ACTION -> ADD_PRODUCTS
 export const addCart = (cart) => ({ // ACTION-CREATOR -> ADD_PRODUCTS
   type: ADD_CART, payload: { cart },
+});
+
+export const SET_LOCATION = 'SET_LOCATION'; // ACTION -> SET_LOCATION
+export const findHome = (itsHome) => ({ // ACTION-CREATOR -> SET_LOCATION
+  type: SET_LOCATION, payload: { itsHome },
 });

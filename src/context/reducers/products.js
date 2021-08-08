@@ -1,4 +1,6 @@
-import { ADD_PRODUCTS, SET_FAVORITE, ADD_CART } from '../store';
+import {
+  ADD_PRODUCTS, SET_FAVORITE, ADD_CART, SET_LOCATION,
+} from '../store';
 
 const productsReducer = (state, { type, payload }) => { // Desestruturação do Action
   switch (type) {
@@ -22,6 +24,13 @@ const productsReducer = (state, { type, payload }) => { // Desestruturação do 
       return {
         ...state,
         cart,
+      };
+    }
+    case SET_LOCATION: {
+      const { itsHome } = payload;
+      return {
+        ...state,
+        itsHome,
       };
     }
     default:
