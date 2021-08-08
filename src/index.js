@@ -7,11 +7,11 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider>
-      <HashRouter>
+    <HashRouter>
+      <Provider>
         <App />
-      </HashRouter>
-    </Provider>
+      </Provider>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );
