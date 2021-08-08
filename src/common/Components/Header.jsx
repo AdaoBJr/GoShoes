@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ALink from 'react-anchor-link-smooth-scroll';
 
 import { BiToggleLeft, BiToggleRight } from 'react-icons/bi';
 import { HiSun } from 'react-icons/hi';
 import { RiMoonClearFill } from 'react-icons/ri';
+import store from '../../context/store';
 
 export default function Header() {
+  const { products: { itsHome } } = useContext(store);
   const [showMenu, setShowMenu] = useState(false);
   const [lightTheme, setTheme] = useState(true);
+
   return (
     <>
       {/* <!--========== HEADER ==========--> */}
@@ -27,10 +30,12 @@ export default function Header() {
               </li>
               <li
                 className="navItem"
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={() => { setShowMenu(!showMenu); }}
                 aria-hidden
               >
-                <ALink href="#shoes" className="navLink">Coleções</ALink>
+                {(itsHome) ? (<ALink href="#shoes" className="navLink">Coleções</ALink>) : (
+                  <Link to="/" className="navLink">Coleções</Link>
+                )}
               </li>
               <li
                 className="navItem"
