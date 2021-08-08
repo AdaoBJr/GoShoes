@@ -4,17 +4,11 @@ import {
 } from 'react-icons/fa';
 
 import store, { addCart, addProducts, setFav } from '../../context/store';
-import { Fav, Cart } from '../../functions';
+import { Fav, Cart, showQty } from '../../functions';
 import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
   const { products: { products, favorited, cart }, setProducts } = useContext(store);
-
-  const showQty = (id) => {
-    const product = cart.filter((c) => c.id === id)[0];
-    const qty = (product) ? product.count : 0;
-    return qty;
-  };
 
   const threeWordsTitle = (title) => {
     const newName = `${title.split(' ')[0]} ${title.split(' ')[1]} ${title.split(' ')[2]}`;
@@ -56,7 +50,7 @@ export default function Shoes() {
                 </div>
                 <div className="cartItems">
                   <FaShoppingCart />
-                  <div className="numberItems">{ showQty(id) }</div>
+                  <div className="numberItems">{ showQty(id, cart) }</div>
                 </div>
                 <div
                   aria-hidden

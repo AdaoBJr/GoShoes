@@ -65,7 +65,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <!--========== COLEÇÕES ==========--> INSERIR AQUI PRODUTOS / COMPONETIZAR */}
+        {/* <!--========== COLEÇÕES ==========--> */}
         <Shoes />
       </main>
       {/* <!--========== FOOTER ==========--> */}

@@ -49,3 +49,10 @@ export const Cart = (product, cart, add) => {
   setStorage('LScart', productCart);
   return productCart;
 };
+
+// VIEW QUANTIDADE DE PRODUTOS EM ESTOQUE
+export const showQty = (id, cart) => {
+  const product = cart.filter((c) => c.id === id)[0];
+  const qty = (product) ? product.count : 0;
+  return qty;
+};
