@@ -17,14 +17,14 @@ export default function Favorited() {
       <div className="shoesContainer bdGrid">
         {favorited.map((product) => {
           const {
-            id, title, thumbnail, available_quantity: availableQty, price,
+            id, title, thumbnail, availableQuantity, price,
           } = product;
           return (
             <div className="shoesContent" key={id}>
               <img src={thumbnail} alt="" className="shoesImg" />
               <h3 className="shoesTitle">{title}</h3>
               <span className="shoesCategory">
-                {`Disponível: ${availableQty} und(s)`}
+                {`Disponível: ${availableQuantity} und(s)`}
               </span>
               <span className="shoesPreci">
                 {`R$ ${price
