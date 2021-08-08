@@ -14,7 +14,7 @@ export default function Header() {
       {/* <!--========== HEADER ==========--> */}
       <header className="header" id="header">
         <nav className="nav bdContainer">
-          <a href className="navLogo">Christmas Gift</a>
+          <Link to="/" className="navLogo">GoShoes</Link>
 
           <div className={(showMenu) ? 'navMenu show' : 'navMenu'} id="nav-menu">
             <ul className="navList">
