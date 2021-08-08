@@ -69,7 +69,7 @@ export default function Shoes() {
               <div
                 aria-hidden
                 className="button favoritedButton"
-                onClick={() => setProducts(setFav(Fav(id, favorited)))}
+                onClick={() => setProducts(setFav(Fav(product, favorited)))}
               >
                 {(favorited.find((fav) => fav.id === id)) ? <FaHeart /> : <FaRegHeart /> }
               </div>

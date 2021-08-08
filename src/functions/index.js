@@ -6,12 +6,17 @@ export const getStorage = (key, value = []) => (
   JSON.parse(localStorage.getItem(key)) || value);
 
 // SET FAVORITOS
-export const Fav = (id, favorited) => {
+export const Fav = (product, favorited) => {
+  const {
+    id, title, thumbnail, price, available_quantity: availableQuantity,
+  } = product;
   const favorite = [...favorited];
 
   const findFav = favorite.find((item) => item.id === id);
   if (!favorite.length || !findFav) {
-    const newFav = [...favorite, { id }];
+    const newFav = [...favorite, {
+      id, title, thumbnail, price, availableQuantity,
+    }];
     setStorage('LSfav', newFav);
     return newFav;
   }
