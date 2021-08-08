@@ -9,24 +9,24 @@ import Header from '../Components/Header';
 export default function Favorited() {
   const { products: { favorited, cart }, setProducts } = useContext(store);
   const renderProducts = () => (
-    <section className="shoes section bdContainer" id="shoes">
+    <section className="section bdContainer">
       <h2 className="sectionTitle">
         Favoritos
       </h2>
 
-      <div className="shoesContainer bdGrid">
+      <div className="favContainer bdGrid">
         {favorited.map((product) => {
           const {
             id, title, thumbnail, availableQuantity, price,
           } = product;
           return (
-            <div className="shoesContent" key={id}>
-              <img src={thumbnail} alt="" className="shoesImg" />
-              <h3 className="shoesTitle">{title}</h3>
-              <span className="shoesCategory">
+            <div className="favContent" key={id}>
+              <img src={thumbnail} alt="" className="favImg" />
+              <h3 className="favTitle">{title}</h3>
+              <span className="favCategory">
                 {`Disponível: ${availableQuantity} und(s)`}
               </span>
-              <span className="shoesPreci">
+              <span className="favPreci">
                 {`R$ ${price
                   .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
               </span>
@@ -63,7 +63,14 @@ export default function Favorited() {
       </div>
     </section>
   );
-  if (!favorited.length) { <h1>Não temos favoritos</h1>; }
+  if (!favorited.length) {
+    return (
+      <>
+        <Header />
+        <h1 className="sectionTitle">Não temos favoritos</h1>
+      </>
+    );
+  }
   return (
     <>
       {/* <!--========== FAVORITOS ==========--> */}
