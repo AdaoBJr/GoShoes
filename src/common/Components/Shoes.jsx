@@ -4,7 +4,7 @@ import {
 } from 'react-icons/fa';
 
 import store, { addCart, addProducts, setFav } from '../../context/store';
-import { Fav, Cart, showQty } from '../../functions';
+import { Fav, CarT, showQty } from '../../functions';
 import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
@@ -44,7 +44,7 @@ export default function Shoes() {
                 <div
                   aria-hidden
                   className="removeButton"
-                  onClick={() => setProducts(addCart(Cart(product, cart, false)))}
+                  onClick={() => setProducts(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
@@ -55,7 +55,7 @@ export default function Shoes() {
                 <div
                   aria-hidden
                   className="addButton"
-                  onClick={() => setProducts(addCart(Cart(product, cart, true)))}
+                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
                 >
                   <FaPlus />
                 </div>

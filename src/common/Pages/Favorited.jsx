@@ -3,7 +3,7 @@ import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
 } from 'react-icons/fa';
 import store, { addCart, setFav } from '../../context/store';
-import { Cart, Fav, showQty } from '../../functions';
+import { CarT, Fav, showQty } from '../../functions';
 import Header from '../Components/Header';
 
 export default function Favorited() {
@@ -34,7 +34,7 @@ export default function Favorited() {
                 <div
                   aria-hidden
                   className="removeButton"
-                  onClick={() => setProducts(addCart(Cart(product, cart, false)))}
+                  onClick={() => setProducts(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
@@ -45,7 +45,7 @@ export default function Favorited() {
                 <div
                   aria-hidden
                   className="addButton"
-                  onClick={() => setProducts(addCart(Cart(product, cart, true)))}
+                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
                 >
                   <FaPlus />
                 </div>

@@ -26,7 +26,7 @@ export const Fav = (product, favorited) => {
 };
 
 // CARRINHO DE COMPRAS
-export const Cart = (product, cart, add) => {
+export const CarT = (product, cart, add) => {
   const {
     id, title, thumbnail, price, available_quantity: availableQuantity,
   } = product;
