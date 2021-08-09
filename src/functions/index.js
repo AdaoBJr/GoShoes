@@ -14,8 +14,8 @@ export const getStorage = (key, value = []) => (
   JSON.parse(localStorage.getItem(key)) || value);
 
 // ----------------------------------------------------------------------------------------------
-
 // SET FAVORITOS
+
 export const Fav = (product, favorited) => {
   const {
     id, title, thumbnail, price, available_quantity: availableQuantity,
@@ -36,7 +36,10 @@ export const Fav = (product, favorited) => {
   return newFav;
 };
 
+// ----------------------------------------------------------------------------------------------
 // CARRINHO DE COMPRAS
+
+// ADD, REMOVE, UPDATE CART
 export const CarT = (product, cart, add) => {
   const {
     id, title, thumbnail, price, available_quantity: availableQuantity,
@@ -63,6 +66,14 @@ export const CarT = (product, cart, add) => {
   setStorage('LScart', productCart);
   return productCart;
 };
+
+// TOTAL VALUE CART
+export const sumCart = (cart) => {
+  const totalCarT = cart.reduce((acc, currCart) => acc + currCart.totalValue, 0);
+  return Math.round((totalCarT) * 100) / 100;
+};
+
+// ----------------------------------------------------------------------------------------------
 
 // VIEW QUANTIDADE DE PRODUTOS EM ESTOQUE
 export const showQty = (id, cart) => {

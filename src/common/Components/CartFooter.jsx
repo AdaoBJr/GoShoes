@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FaTrash, FaShoppingBag } from 'react-icons/fa';
 import { TiCancel } from 'react-icons/ti';
 
-import store from '../../context/store';
+import store, { addTotalCart } from '../../context/store';
+import { sumCart } from '../../functions';
 
 export default function CartFooter() {
-  const { cart: { totalCart } } = useContext(store);
+  const { cart: { updateSum, cart, totalCart }, setCart } = useContext(store);
   const [minWidth, setMinWidth] = useState(false);
 
   const checkWidthScreen = () => {
@@ -24,6 +25,7 @@ export default function CartFooter() {
   useEffect(checkWidthScreen, []);
   window.addEventListener('resize', () => checkWidthScreen());
 
+  useEffect(() => { if (updateSum) { setCart(addTotalCart(sumCart(cart))); } });
   // ---------------------------------------------------------------------------------------------
 
   return (
@@ -46,7 +48,8 @@ export default function CartFooter() {
         </button>
         <div className="totalCart">
           <h3>
-            {`Total: R$ ${totalCart
+            {(minWidth) ? `Total: R$ ${totalCart
+              .toLocaleString('pt-br', { minimumFractionDigits: 2 })}` : `R$ ${totalCart
               .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
           </h3>
         </div>
