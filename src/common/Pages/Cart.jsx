@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
+  FaHeart, FaRegHeart, FaMinus, FaPlus,
 } from 'react-icons/fa';
 import store, { addCart, setFav } from '../../context/store';
 import { CarT, Fav, showQty } from '../../functions';
@@ -39,8 +39,7 @@ export default function Cart() {
                   <FaMinus />
                 </div>
                 <div className="cartItems">
-                  <FaShoppingCart />
-                  <div className="numberItems">{ showQty(id, cart) }</div>
+                  <div className="numberItems cartQty">{ showQty(id, cart) }</div>
                 </div>
                 <div
                   aria-hidden

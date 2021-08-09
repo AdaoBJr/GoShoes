@@ -40,7 +40,8 @@
   --mb-8: 8rem;
   /*========== z index ==========*/
 
-  --z-tooltip: 10;
+  --z-element1: 1;
+  --z-element2: 2;
   --z-fixed: 100;
 }
 
@@ -332,7 +333,7 @@ img{
   padding: .3rem;
   background: rgba(218,37,53,.5);
   border-radius: .4rem;
-  z-index: var(--z-tooltip);
+  z-index: var(--z-element1);
   transition: .4s;
   visibility: hidden;
 }
@@ -579,7 +580,7 @@ img{
   height: 2.7rem;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: var(--z-fixed);
+  z-index: var(--z-element2);
 }
 
 .numberItems {
@@ -684,6 +685,12 @@ img{
   font-size: var(--small-font-size);
   margin-bottom: var(--mb-1);
   color: var(--text-color-light);
+}
+
+.cartQty {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: var(--mb-1);
 }
 
 .cartPreci {
