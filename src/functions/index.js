@@ -54,12 +54,11 @@ export const CarT = (product, cart, add) => {
 
   if (add) { productCart[key].count += 1; }
   if (!add && productCart[key].count >= 1) { productCart[key].count -= 1; }
-  if (!add && productCart[key].count === 0) { productCart = removeItem(id, cart); }
 
-  if (!cart.length === 1 && !productCart[key].count === 1) {
-    productCart[key].totalValue = Math.round((productCart[key].count
+  productCart[key].totalValue = Math.round((productCart[key].count
       * productCart[key].price) * 100) / 100;
-  }
+
+  if (!add && productCart[key].count === 0) { productCart = removeItem(id, cart); }
 
   setStorage('LScart', productCart);
   return productCart;
