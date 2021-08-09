@@ -1,5 +1,5 @@
 import {
-  ADD_CART, UPDATE_SUM, ADD_TOTAL_CART,
+  ADD_CART, ADD_TOTAL_CART,
 } from '../store';
 
 const cartReducer = (state, { type, payload }) => { // Desestruturação do Action
@@ -9,13 +9,7 @@ const cartReducer = (state, { type, payload }) => { // Desestruturação do Acti
       return {
         ...state,
         cart,
-      };
-    }
-    case UPDATE_SUM: {
-      const { updateSum } = payload;
-      return {
-        ...state,
-        updateSum,
+        updateSum: true,
       };
     }
     case ADD_TOTAL_CART: {
@@ -23,6 +17,7 @@ const cartReducer = (state, { type, payload }) => { // Desestruturação do Acti
       return {
         ...state,
         totalCart,
+        updateSum: false,
       };
     }
     default:
