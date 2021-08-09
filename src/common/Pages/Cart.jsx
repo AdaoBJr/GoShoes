@@ -30,7 +30,7 @@ export default function Cart() {
               <div
                 aria-hidden
                 className="button removedButton"
-                onClick={() => setProducts(addCart(removeItem(id, cart)))}
+                onClick={() => setCart(addCart(removeItem(id, cart)))}
               >
                 <FaTimes />
               </div>
