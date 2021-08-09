@@ -15,6 +15,7 @@ export const PRODUCTS = {
   allProducts: [],
   products: [],
   cart: [],
+  totalCart: 0,
   favorited: [],
 };
 
