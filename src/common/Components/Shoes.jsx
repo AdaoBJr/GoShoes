@@ -50,13 +50,17 @@ export default function Shoes() {
                 >
                   <FaMinus />
                 </div>
-                <div className={(Qty > 0) ? 'cartItems' : 'cartItemsNum1'}>
+                <div
+                  aria-hidden
+                  className={(Qty > 0) ? 'cartItems' : 'cartItemsNum1'}
+                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
+                >
                   <FaShoppingCart />
                   <div className="numberItems">{ Qty }</div>
                 </div>
                 <div
                   aria-hidden
-                  className="addButton"
+                  className={(Qty > 0) ? 'addButton' : 'opacity'}
                   onClick={() => setProducts(addCart(CarT(product, cart, true)))}
                 >
                   <FaPlus />

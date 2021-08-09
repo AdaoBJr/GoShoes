@@ -19,6 +19,8 @@ export default function Favorited() {
           const {
             id, title, thumbnail, availableQuantity, price,
           } = product;
+          const Qty = showQty(id, cart);
+
           return (
             <div className="favContent" key={id}>
               <img src={thumbnail} alt="" className="favImg" />
@@ -33,14 +35,18 @@ export default function Favorited() {
               <div className="addRemoveButtons">
                 <div
                   aria-hidden
-                  className="removeButton"
+                  className={(Qty > 0) ? 'removeButton' : 'opacity'}
                   onClick={() => setProducts(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
-                <div className="cartItems">
+                <div
+                  aria-hidden
+                  className={(Qty > 0) ? 'cartItems' : 'cartItemsNum1'}
+                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
+                >
                   <FaShoppingCart />
-                  <div className="numberItems">{ showQty(id, cart) }</div>
+                  <div className="numberItems">{ Qty }</div>
                 </div>
                 <div
                   aria-hidden

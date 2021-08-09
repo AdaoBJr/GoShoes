@@ -571,6 +571,7 @@ img{
 .cartItems {
   position: absolute;
   bottom: 2.6rem;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -670,6 +671,7 @@ img{
 
 .cartItemsNum1 {
   position: absolute;
+  right: 0;
   bottom: 2.6rem;
   display: flex;
   justify-content: center;
@@ -1014,12 +1016,12 @@ img{
 
   .shoesContainer {
     grid-template-columns: repeat(3,224px);
-    column-gap: 4rem;
+    column-gap: 7rem;
     justify-content: center;
   }
 
   .shoesContent {
-    width: 17rem;
+    width: 19rem;
   }
 
   /*========== FAVORITED ==========*/
