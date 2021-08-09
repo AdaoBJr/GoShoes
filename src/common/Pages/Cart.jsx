@@ -19,7 +19,7 @@ export default function Cart() {
       <div className="cartContainer bdGrid">
         {cart.map((product) => {
           const {
-            id, title, thumbnail, availableQuantity, price,
+            id, title, thumbnail, availableQuantity, price, count,
           } = product;
           return (
             <div className="cartContent" key={id}>
@@ -42,12 +42,12 @@ export default function Cart() {
               <div className="addRemoveBtns">
                 <div
                   aria-hidden
-                  className="removeButton"
+                  className={(count > 1) ? 'removeButton' : 'opacity'}
                   onClick={() => setProducts(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
-                <div className="cartItems cartItemsBlue">
+                <div className={(count > 1) ? 'cartItems' : 'cartItemsNum1'}>
                   <div className="numberItems cartQty">{ showQty(id, cart) }</div>
                 </div>
                 <div

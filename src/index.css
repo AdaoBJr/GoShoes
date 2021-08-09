@@ -579,8 +579,10 @@ img{
   width: 2.45rem;
   height: 2.7rem;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2),
+              0 -2px 5px rgba(0, 0, 0, 0.2);
   z-index: var(--z-element2);
+  transition: 0.5s;
 }
 
 .numberItems {
@@ -666,6 +668,23 @@ img{
   opacity: 1;
 }
 
+.cartItemsNum1 {
+  position: absolute;
+  bottom: 2.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--container-color);
+  background-color: var(--first-color);
+  width: 2.45rem;
+  height: 2.7rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2),
+              0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: var(--z-element2);
+  transition: 0.5s;
+}
+
 .cartImg {
   width: 200px;
   max-height: 200px;
@@ -693,6 +712,15 @@ img{
   margin-bottom: var(--mb-1);
 }
 
+.opacity {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.bgBlue {
+  background-color: var(--title-home-color);
+}
+
 .cartPreci {
   padding-top: 0.5rem;
   font-size: var(--h2-font-size);
@@ -700,6 +728,18 @@ img{
   text-align: center;
   color: var(--title-color);
   border-top: 1px solid var(--text-color-light);
+}
+
+.removedButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  font-size: 1.25rem;
+  height: var(--heart-height);
+  padding: .75rem;
+  border-radius: 0 1rem 0 1rem;
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
 }
 
 
@@ -897,7 +937,7 @@ img{
     animation-name: animate-buttons;
   }
 
-  .favoritedButton{
+  .favoritedButton, .removedButton {
     padding: .75rem;
   }
 
