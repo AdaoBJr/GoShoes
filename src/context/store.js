@@ -54,11 +54,6 @@ export const addCart = (cart) => ({ // ACTION-CREATOR -> ADD_PRODUCTS
   type: ADD_CART, payload: { cart },
 });
 
-export const UPDATE_SUM = 'UPDATE_SUM'; // ACTION -> UPDATE_SUM
-export const uptSum = (updateSum) => ({ // ACTION-CREATOR -> UPDATE_SUM
-  type: UPDATE_SUM, payload: { updateSum },
-});
-
 export const ADD_TOTAL_CART = 'ADD_TOTAL_CART'; // ACTION -> ADD_TOTAL_CART
 export const addTotalCart = (totalCart) => ({ // ACTION-CREATOR -> ADD_TOTAL_CART
   type: ADD_TOTAL_CART, payload: { totalCart },
