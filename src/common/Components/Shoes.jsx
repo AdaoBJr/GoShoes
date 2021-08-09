@@ -29,6 +29,8 @@ export default function Shoes() {
           const {
             id, title, thumbnail, available_quantity: availableQty, price,
           } = product;
+          const Qty = showQty(id, cart);
+
           return (
             <div className="shoesContent" key={id}>
               <img src={thumbnail} alt="" className="shoesImg" />
@@ -43,14 +45,14 @@ export default function Shoes() {
               <div className="addRemoveButtons">
                 <div
                   aria-hidden
-                  className="removeButton"
+                  className={(Qty > 0) ? 'removeButton' : 'opacity'}
                   onClick={() => setProducts(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
-                <div className="cartItems">
+                <div className={(Qty > 0) ? 'cartItems' : 'cartItemsNum1'}>
                   <FaShoppingCart />
-                  <div className="numberItems">{ showQty(id, cart) }</div>
+                  <div className="numberItems">{ Qty }</div>
                 </div>
                 <div
                   aria-hidden
