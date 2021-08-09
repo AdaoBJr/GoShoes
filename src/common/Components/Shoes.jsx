@@ -36,7 +36,8 @@ export default function Shoes() {
               <img src={thumbnail} alt="" className="shoesImg" />
               <h3 className="shoesTitle">{threeWordsTitle(title)}</h3>
               <span className="shoesCategory">
-                {`Disponível: ${availableQty} und(s)`}
+                {(availableQty) === 1 ? `${availableQty} disponível` : (
+                  `${availableQty} disponíveis`)}
               </span>
               <span className="shoesPreci">
                 {`R$ ${price

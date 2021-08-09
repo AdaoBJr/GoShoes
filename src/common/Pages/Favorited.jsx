@@ -26,7 +26,8 @@ export default function Favorited() {
               <img src={thumbnail} alt="" className="favImg" />
               <h3 className="favTitle">{title}</h3>
               <span className="favCategory">
-                {`Disponível: ${availableQuantity} und(s)`}
+                {(availableQuantity) === 1 ? `${availableQuantity} disponível` : (
+                  `${availableQuantity} disponíveis`)}
               </span>
               <span className="favPreci">
                 {`R$ ${price

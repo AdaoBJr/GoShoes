@@ -34,7 +34,8 @@ export default function Cart() {
               <img src={thumbnail} alt="" className="favImg" />
               <h3 className="cartTitle">{title}</h3>
               <span className="cartCategory">
-                {`Disponível: ${availableQuantity} und(s)`}
+                {(availableQuantity) === 1 ? `${availableQuantity} disponível` : (
+                  `${availableQuantity} disponíveis`)}
               </span>
               <span className="cartPreci">
                 {`R$ ${totalValue
