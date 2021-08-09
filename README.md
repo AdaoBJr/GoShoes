@@ -1,6 +1,5 @@
 <p align="center"><img width='150px' src='https://github.com/AdaoBJr/GoShoes/blob/main/src/images/GoShoes.png' />
 <h1 align="center"> GoShoes Project  </h1>  </p>
-se
 <h2 align="center">GitHub Pages:</h2>
  
  <div align="center">
