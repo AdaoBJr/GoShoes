@@ -5,7 +5,7 @@ import { TiCancel } from 'react-icons/ti';
 import store from '../../context/store';
 
 export default function CartFooter() {
-  const { products: { totalCart } } = useContext(store);
+  const { cart: { totalCart } } = useContext(store);
   const [minWidth, setMinWidth] = useState(false);
 
   const checkWidthScreen = () => {

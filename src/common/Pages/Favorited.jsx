@@ -7,7 +7,9 @@ import { CarT, Fav, showQty } from '../../functions';
 import Header from '../Components/Header';
 
 export default function Favorited() {
-  const { products: { favorited, cart }, setProducts } = useContext(store);
+  const {
+    products: { favorited }, cart: { cart }, setProducts, setCart,
+  } = useContext(store);
   const renderProducts = () => (
     <section className="section bdContainer">
       <h2 className="sectionTitle">
@@ -37,14 +39,14 @@ export default function Favorited() {
                 <div
                   aria-hidden
                   className={(Qty > 0) ? 'removeButton' : 'opacity'}
-                  onClick={() => setProducts(addCart(CarT(product, cart, false)))}
+                  onClick={() => setCart(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
                 <div
                   aria-hidden
                   className={(Qty > 0) ? 'cartItems' : 'cartItemsNum1'}
-                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
+                  onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaShoppingCart />
                   <div className="numberItems">{ Qty }</div>
@@ -52,7 +54,7 @@ export default function Favorited() {
                 <div
                   aria-hidden
                   className="addButton"
-                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
+                  onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaPlus />
                 </div>

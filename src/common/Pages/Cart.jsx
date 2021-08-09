@@ -10,7 +10,9 @@ import CartFooter from '../Components/CartFooter';
 import Header from '../Components/Header';
 
 export default function Cart() {
-  const { products: { favorited, cart }, setProducts } = useContext(store);
+  const {
+    products: { favorited }, cart: { cart }, setProducts, setCart,
+  } = useContext(store);
   const renderProducts = () => (
     <section className="section bdContainer">
       <h2 className="sectionTitle">
@@ -46,7 +48,7 @@ export default function Cart() {
                 <div
                   aria-hidden
                   className={(count > 1) ? 'removeButton' : 'opacity'}
-                  onClick={() => setProducts(addCart(CarT(product, cart, false)))}
+                  onClick={() => setCart(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
@@ -56,7 +58,7 @@ export default function Cart() {
                 <div
                   aria-hidden
                   className="addButton"
-                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
+                  onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaPlus />
                 </div>

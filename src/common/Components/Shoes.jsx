@@ -8,7 +8,9 @@ import { Fav, CarT, showQty } from '../../functions';
 import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
-  const { products: { products, favorited, cart }, setProducts } = useContext(store);
+  const {
+    products: { products, favorited }, cart: { cart }, setProducts, setCart,
+  } = useContext(store);
 
   const threeWordsTitle = (title) => {
     const newName = `${title.split(' ')[0]} ${title.split(' ')[1]} ${title.split(' ')[2]}`;
@@ -47,14 +49,14 @@ export default function Shoes() {
                 <div
                   aria-hidden
                   className={(Qty > 0) ? 'removeButton' : 'opacity'}
-                  onClick={() => setProducts(addCart(CarT(product, cart, false)))}
+                  onClick={() => setCart(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
                 <div
                   aria-hidden
                   className={(Qty > 0) ? 'cartItems' : 'cartItemsNum1'}
-                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
+                  onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaShoppingCart />
                   <div className="numberItems">{ Qty }</div>
@@ -62,7 +64,7 @@ export default function Shoes() {
                 <div
                   aria-hidden
                   className={(Qty > 0) ? 'addButton' : 'opacity'}
-                  onClick={() => setProducts(addCart(CarT(product, cart, true)))}
+                  onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaPlus />
                 </div>
