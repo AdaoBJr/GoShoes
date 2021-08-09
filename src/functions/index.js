@@ -1,9 +1,19 @@
+// HELPERS ---------------------------------------------------------------------------------
+// FUNÇÃO DE REMOÇÃO
+
+const removeItem = (id, arrayData) => {
+  const removedItem = arrayData.filter((item) => item.id !== id);
+  return removedItem;
+};
+
 // SET / GET LOCALSTORAGE
 export const setStorage = (key, value) => (
   localStorage.setItem(key, JSON.stringify(value)));
 
 export const getStorage = (key, value = []) => (
   JSON.parse(localStorage.getItem(key)) || value);
+
+// ----------------------------------------------------------------------------------------------
 
 // SET FAVORITOS
 export const Fav = (product, favorited) => {
@@ -20,7 +30,8 @@ export const Fav = (product, favorited) => {
     setStorage('LSfav', newFav);
     return newFav;
   }
-  const newFav = favorited.filter((fav) => fav.id !== id);
+  // const newFav = favorited.filter((fav) => fav.id !== id);
+  const newFav = removeItem(id, favorited);
   setStorage('LSfav', newFav);
   return newFav;
 };
@@ -38,14 +49,18 @@ export const CarT = (product, cart, add) => {
     setStorage('LScart', productCart);
     return productCart;
   }
-  const productCart = [...cart];
+  let productCart = [...cart];
   const key = productCart.indexOf(findProduct);
 
   if (add) { productCart[key].count += 1; }
   if (!add && productCart[key].count >= 1) { productCart[key].count -= 1; }
+  if (!add && productCart[key].count === 0) { productCart = removeItem(id, cart); }
 
-  productCart[key].totalValue = Math.round((productCart[key].count
-    * productCart[key].price) * 100) / 100;
+  if (!cart.length === 1 && !productCart[key].count === 1) {
+    productCart[key].totalValue = Math.round((productCart[key].count
+      * productCart[key].price) * 100) / 100;
+  }
+
   setStorage('LScart', productCart);
   return productCart;
 };
