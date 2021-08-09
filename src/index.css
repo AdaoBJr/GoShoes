@@ -766,7 +766,7 @@ button {
 .footerNav {
   height: var(--footer-height);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -774,6 +774,10 @@ button {
   font-size: 0.75rem;
   font-weight: var(--font-semi-bold);
   margin-right: var(--mb-1);
+}
+
+.totalCart {
+  min-width: 6rem;
 }
 
 .footerCart button {
@@ -1081,9 +1085,17 @@ button {
     font-size: var(--h3-font-size);
   }
 
+  .footerNav {
+    justify-content: flex-end;
+  }
+
   .footerCart button, .totalCart h3 {
     font-size: var(--normal-font-size);
     margin-right: var(--mb-3);
+  }
+
+  .totalCart {
+    min-width: 11rem;
   }
 
   .cancelIcon {
