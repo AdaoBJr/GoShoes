@@ -1027,6 +1027,10 @@ button {
     padding: .5rem 1.5rem;
   }
 
+  .favContent:hover {
+    box-shadow: 0 3px 12px rgba(65,11,16,.15);
+  }
+
   .favContent:hover .addRemoveButtons {
     opacity: 1;
     animation-duration: .5s;
@@ -1065,6 +1069,10 @@ button {
 
   .cartContent {
     padding: .5rem 1.5rem;
+  }
+
+  .cartContent:hover {
+    box-shadow: 0 3px 12px rgba(65,11,16,.15);
   }
 
   .addRemoveBtns {
