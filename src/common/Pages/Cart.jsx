@@ -79,7 +79,6 @@ export default function Cart() {
       <>
         <Header />
         <h1 className="sectionTitle">Não temos itens no carrinho</h1>
-        <CartFooter />
       </>
     );
   }
