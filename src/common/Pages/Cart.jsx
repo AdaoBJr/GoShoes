@@ -4,7 +4,7 @@ import {
 } from 'react-icons/fa';
 import store, { addCart, setFav } from '../../context/store';
 import {
-  CarT, Fav, removeItem, showQty,
+  CarT, Fav, removeItem,
 } from '../../functions';
 import Header from '../Components/Header';
 
@@ -19,8 +19,9 @@ export default function Cart() {
       <div className="cartContainer bdGrid">
         {cart.map((product) => {
           const {
-            id, title, thumbnail, availableQuantity, price, count,
+            id, title, thumbnail, availableQuantity, count, totalValue,
           } = product;
+
           return (
             <div className="cartContent" key={id}>
               <div
@@ -36,7 +37,7 @@ export default function Cart() {
                 {`Disponível: ${availableQuantity} und(s)`}
               </span>
               <span className="cartPreci">
-                {`R$ ${price
+                {`R$ ${totalValue
                   .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
               </span>
               <div className="addRemoveBtns">
@@ -48,7 +49,7 @@ export default function Cart() {
                   <FaMinus />
                 </div>
                 <div className={(count > 1) ? 'cartItems' : 'cartItemsNum1'}>
-                  <div className="numberItems cartQty">{ showQty(id, cart) }</div>
+                  <div className="numberItems cartQty">{ count }</div>
                 </div>
                 <div
                   aria-hidden
