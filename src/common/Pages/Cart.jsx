@@ -11,11 +11,11 @@ export default function Cart() {
   const renderProducts = () => (
     <section className="section bdContainer">
       <h2 className="sectionTitle">
-        Favoritos
+        Carrinho de Compras
       </h2>
 
       <div className="cartContainer bdGrid">
-        {favorited.map((product) => {
+        {cart.map((product) => {
           const {
             id, title, thumbnail, availableQuantity, price,
           } = product;
@@ -30,7 +30,7 @@ export default function Cart() {
                 {`R$ ${price
                   .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
               </span>
-              <div className="addRemoveButtons">
+              <div className="addRemoveBtns">
                 <div
                   aria-hidden
                   className="removeButton"
@@ -63,7 +63,7 @@ export default function Cart() {
       </div>
     </section>
   );
-  if (!favorited.length) {
+  if (!cart.length) {
     return (
       <>
         <Header />
