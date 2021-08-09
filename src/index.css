@@ -658,6 +658,13 @@ img{
   cursor: pointer;
 }
 
+.addRemoveBtns {
+  position: absolute;
+  right: 0;
+  bottom: 4.5rem;
+  opacity: 1;
+}
+
 .cartImg {
   width: 200px;
   max-height: 200px;
@@ -877,6 +884,12 @@ img{
     padding: .5rem 1.5rem;
   }
 
+  .favContent:hover .addRemoveButtons {
+    opacity: 1;
+    animation-duration: .5s;
+    animation-name: animate-buttons;
+  }
+
   .favoritedButton{
     padding: .75rem;
   }
@@ -909,6 +922,10 @@ img{
 
   .cartContent {
     padding: .5rem 1.5rem;
+  }
+
+  .addRemoveBtns {
+    bottom: 6.5rem;
   }
 
   .cartImg {
