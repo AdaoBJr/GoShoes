@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaTrash, FaShoppingBag } from 'react-icons/fa';
 import { TiCancel } from 'react-icons/ti';
 
-import store, { addTotalCart } from '../../context/store';
+import store, { addCart, addTotalCart } from '../../context/store';
 import { sumCart } from '../../functions';
 
 export default function CartFooter() {
@@ -35,17 +36,20 @@ export default function CartFooter() {
         <button
           type="button"
           className="trashCancelBtn"
+          onClick={() => setCart(addCart([]))}
         >
           <FaTrash className="clearIcon" />
           {(minWidth) ? 'Limpar Carrinho' : 'Limpar'}
         </button>
-        <button
-          type="button"
-          className="trashCancelBtn"
-        >
-          <TiCancel className="cancelIcon" />
-          {(minWidth) ? 'Cancelar Compra' : 'Cancelar'}
-        </button>
+        <Link to="/">
+          <button
+            type="button"
+            className="trashCancelBtn"
+          >
+            <TiCancel className="cancelIcon" />
+            {(minWidth) ? 'Cancelar Compra' : 'Cancelar'}
+          </button>
+        </Link>
         <div className="totalCart">
           <h3>
             {(minWidth) ? `Total: R$ ${totalCart
