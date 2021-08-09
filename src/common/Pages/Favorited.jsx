@@ -67,7 +67,7 @@ export default function Favorited() {
     return (
       <>
         <Header />
-        <h1 className="sectionTitle">Não temos favoritos</h1>
+        <h1 className="sectionTitle">Não temos itens favoritos</h1>
       </>
     );
   }

@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import {
-  FaHeart, FaRegHeart, FaMinus, FaPlus,
+  FaHeart, FaRegHeart, FaMinus, FaPlus, FaTimes,
 } from 'react-icons/fa';
 import store, { addCart, setFav } from '../../context/store';
-import { CarT, Fav, showQty } from '../../functions';
+import {
+  CarT, Fav, removeItem, showQty,
+} from '../../functions';
 import Header from '../Components/Header';
 
 export default function Cart() {
@@ -21,6 +23,13 @@ export default function Cart() {
           } = product;
           return (
             <div className="cartContent" key={id}>
+              <div
+                aria-hidden
+                className="button removedButton"
+                onClick={() => setProducts(addCart(removeItem(id, cart)))}
+              >
+                <FaTimes />
+              </div>
               <img src={thumbnail} alt="" className="favImg" />
               <h3 className="cartTitle">{title}</h3>
               <span className="cartCategory">
@@ -38,7 +47,7 @@ export default function Cart() {
                 >
                   <FaMinus />
                 </div>
-                <div className="cartItems">
+                <div className="cartItems cartItemsBlue">
                   <div className="numberItems cartQty">{ showQty(id, cart) }</div>
                 </div>
                 <div
