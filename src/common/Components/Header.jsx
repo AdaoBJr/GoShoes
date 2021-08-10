@@ -53,7 +53,11 @@ export default function Header() {
               >
                 <Link to="/carrinho" className="navLink display">
                   Carrinho
-                  <div className="numCount">{Qty}</div>
+                  {(Qty !== 0) && (
+                  <div className={(Qty === 0) ? 'numCount' : 'numCount showNumCount'}>
+                    {Qty}
+                  </div>
+                  )}
                 </Link>
               </li>
 

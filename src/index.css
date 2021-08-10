@@ -203,12 +203,32 @@ button {
   padding: 1px 3px;
   margin: 0 2px;
   border-radius: 50%;
+  opacity: 0;
   transition: 0.5s;
 }
 
 .numCount:hover {
   color: var(--container-color);
   background-color: var(--first-color-darken);
+}
+
+.showNumCount {
+  opacity: 1;
+  bottom: 1.5rem;
+  animation-duration: .5s;
+  animation-name: animate-num_cart;
+}
+
+@keyframes animate-num_cart {
+  0%{
+    transform: scale(1,1);
+  }
+  50%{
+    transform: scale(1.2,1.2);
+  }
+  100%{
+    transform: scale(1,1);
+  }
 }
 
 /*========== NAV ==========*/
