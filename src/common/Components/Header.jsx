@@ -56,12 +56,6 @@ export default function Header({ colec }) {
                     Home
                   </Link>
                 )}
-                {/* <Link
-                  to="/"
-                  className={(home && !colec) ? 'navLink activeLink' : 'navLink'}
-                >
-                  Home
-                </Link> */}
               </li>
               <li
                 className="navItem"
@@ -84,12 +78,6 @@ export default function Header({ colec }) {
                     Coleções
                   </Link>
                 )}
-                {/* <Link
-                  to="/"
-                  className={(colec) ? 'navLink activeLink' : 'navLink'}
-                >
-                  Coleções
-                </Link> */}
               </li>
               <li
                 className="navItem"
