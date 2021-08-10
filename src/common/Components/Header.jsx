@@ -9,7 +9,7 @@ import { RiMoonClearFill } from 'react-icons/ri';
 import store from '../../context/store';
 import { showQty } from '../../functions';
 
-export default function Header({ colec }) {
+export default function Header({ colec, lightTheme, setTheme }) {
   const {
     cart: { cart },
     screen: {
@@ -18,7 +18,6 @@ export default function Header({ colec }) {
   } = useContext(store);
 
   const [showMenu, setShowMenu] = useState(false);
-  const [lightTheme, setTheme] = useState(true);
   const Qty = showQty(false, cart);
 
   // ---------------------------------------------------------------------------------------------
@@ -136,4 +135,6 @@ export default function Header({ colec }) {
 
 Header.propTypes = {
   colec: PropTypes.bool.isRequired,
+  lightTheme: PropTypes.bool.isRequired,
+  setTheme: PropTypes.func.isRequired,
 };

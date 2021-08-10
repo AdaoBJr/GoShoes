@@ -489,6 +489,7 @@ button {
   margin-bottom: var(--mb-3);
   font-weight: var(--font-semi-bold);
   font-size: var(--h2-font-size);
+  color: #FFF;
   text-shadow: 0 6px 25px rgba(0,0,0,.5);
 }
 

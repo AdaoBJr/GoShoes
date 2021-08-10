@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ALink from 'react-anchor-link-smooth-scroll';
 import { BiUpArrowAlt } from 'react-icons/bi';
 import { SiFacebook, SiTwitter, SiInstagram } from 'react-icons/si';
@@ -14,6 +14,7 @@ import img6 from '../../images/img6.png';
 
 export default function Home() {
   const [ScrollY, setScrollY] = useState(false);
+  const [lightTheme, setTheme] = useState(true);
 
   /*= ==== MOUSEMOVE HOME IMG ===== */
   const move = (e) => {
@@ -38,6 +39,12 @@ export default function Home() {
   // ---------------------------------------------------------------------------------------------
   // CICLOS DE VIDA
 
+  /*= =================== DARK LIGHT THEME ==================== */
+  useEffect(() => {
+    if (!lightTheme) document.body.classList.add('darkTheme');
+    if (lightTheme) document.body.classList.remove('darkTheme');
+  });
+
   // ---------------------------------------------------------------------------------------------
 
   return (
@@ -47,7 +54,7 @@ export default function Home() {
         <BiUpArrowAlt className="scrolltopIcon" />
       </ALink>
       {/* <!--========== HEADER ==========--> */}
-      <Header colec={ScrollY} />
+      <Header colec={ScrollY} lightTheme={lightTheme} setTheme={setTheme} />
 
       <main className="main">
         {/* <!--========== HOME ==========--> */}
@@ -66,11 +73,11 @@ export default function Home() {
                 GoShoes
               </h1>
               <p className="homeDescription">
-                Let`s shop?
+                Let&#39;s shop?
                 {' '}
                 <br />
                 {' '}
-                Let`s GoShoes.
+                Let&#39;s GoShoes.
               </p>
               <ALink href="#shoes" className="homeButton">Get Started</ALink>
             </div>
