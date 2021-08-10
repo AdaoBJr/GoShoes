@@ -175,6 +175,8 @@ button {
   gap: 1.5rem;
 }
 
+/*========== HEADER ==========*/
+
 .header{
   width: 100%;
   position: fixed;
@@ -183,6 +185,31 @@ button {
   z-index: var(--z-fixed);
   background-color: var(--body-color);
   box-shadow: 0 3px 12px rgba(65,11,16,.15);
+}
+
+.display {
+  display: flex;
+}
+
+.numCount {
+  z-index: var(--z-element2);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-bold);
+  text-align: center;
+  color: var(--title-home-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2),
+              0 -2px 5px rgba(0, 0, 0, 0.2);
+  min-width: 1.5rem;
+  padding: 1px 3px;
+  margin: 0 2px;
+  border-radius: 50%;
+  /* cursor: pointer; */
+  transition: 0.5s;
+}
+
+.numCount:hover {
+  color: var(--container-color);
+  background-color: var(--first-color-darken);
 }
 
 /*========== NAV ==========*/

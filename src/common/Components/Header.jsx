@@ -49,7 +49,10 @@ export default function Header() {
                 onClick={() => setShowMenu(!showMenu)}
                 aria-hidden
               >
-                <Link to="/carrinho" className="navLink">Carrinho</Link>
+                <Link to="/carrinho" className="navLink display">
+                  Carrinho
+                  <div className="numCount">2</div>
+                </Link>
               </li>
 
               <li
