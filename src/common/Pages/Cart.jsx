@@ -1,21 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import ALink from 'react-anchor-link-smooth-scroll';
 import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaTimes,
 } from 'react-icons/fa';
+import { BiUpArrowAlt } from 'react-icons/bi';
 import store, { addCart, setFav } from '../../context/store';
 import {
   CarT, Fav, removeItem,
 } from '../../functions';
+
 import CartFooter from '../Components/CartFooter';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 
 export default function Cart() {
+  const [ScrollY, setScrollY] = useState(false);
   const {
     products: { favorited }, cart: { cart }, setProducts, setCart,
   } = useContext(store);
+
+  /*= =================== SHOW SCROLL TOP ==================== */
+  const scrollTop = () => {
+    if (window.scrollY >= 560) { setScrollY(true); } else { setScrollY(false); }
+  };
+  window.addEventListener('scroll', scrollTop);
+
+  // ---------------------------------------------------------------------------------------------
+
   const renderProducts = () => (
-    <section className="section bdContainer">
+    <section className="section bdContainer" id="cart">
+      {/* <!--========== SCROLL TOP ==========--> */}
+      <ALink href="#cart" className={(ScrollY) ? 'scrolltop showScroll' : 'scrolltop'} style={{ bottom: '5rem' }}>
+        <BiUpArrowAlt className="scrolltopIcon" />
+      </ALink>
+
       <h2 className="sectionTitle">
         Carrinho de Compras
       </h2>

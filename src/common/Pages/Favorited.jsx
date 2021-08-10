@@ -1,18 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import ALink from 'react-anchor-link-smooth-scroll';
 import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
 } from 'react-icons/fa';
+import { BiUpArrowAlt } from 'react-icons/bi';
 import store, { addCart, setFav } from '../../context/store';
 import { CarT, Fav, showQty } from '../../functions';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 
 export default function Favorited() {
+  const [ScrollY, setScrollY] = useState(false);
   const {
     products: { favorited }, cart: { cart }, setProducts, setCart,
   } = useContext(store);
+
+  /*= =================== SHOW SCROLL TOP ==================== */
+  const scrollTop = () => {
+    if (window.scrollY >= 560) { setScrollY(true); } else { setScrollY(false); }
+  };
+  window.addEventListener('scroll', scrollTop);
+
+  // ---------------------------------------------------------------------------------------------
+
   const renderProducts = () => (
-    <section className="section bdContainer">
+    <section className="section bdContainer" id="fav">
+      {/* <!--========== SCROLL TOP ==========--> */}
+      <ALink href="#fav" className={(ScrollY) ? 'scrolltop showScroll' : 'scrolltop'}>
+        <BiUpArrowAlt className="scrolltopIcon" />
+      </ALink>
+
       <h2 className="sectionTitle">
         Favoritos
       </h2>
