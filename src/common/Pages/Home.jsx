@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ALink from 'react-anchor-link-smooth-scroll';
 import { BiUpArrowAlt } from 'react-icons/bi';
 
@@ -14,7 +14,6 @@ import img6 from '../../images/img6.png';
 
 export default function Home() {
   const [ScrollY, setScrollY] = useState(false);
-  const [lightTheme, setTheme] = useState(true);
 
   /*= ==== MOUSEMOVE HOME IMG ===== */
   const move = (e) => {
@@ -39,12 +38,6 @@ export default function Home() {
   // ---------------------------------------------------------------------------------------------
   // CICLOS DE VIDA
 
-  /*= =================== DARK LIGHT THEME ==================== */
-  useEffect(() => {
-    if (!lightTheme) document.body.classList.add('darkTheme');
-    if (lightTheme) document.body.classList.remove('darkTheme');
-  });
-
   // ---------------------------------------------------------------------------------------------
 
   return (
@@ -54,7 +47,7 @@ export default function Home() {
         <BiUpArrowAlt className="scrolltopIcon" />
       </ALink>
       {/* <!--========== HEADER ==========--> */}
-      <Header colec={ScrollY} lightTheme={lightTheme} setTheme={setTheme} />
+      <Header colec={ScrollY} />
 
       <main className="main">
         {/* <!--========== HOME ==========--> */}

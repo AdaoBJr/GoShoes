@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import store, {
@@ -13,6 +13,7 @@ export default function Provider({ children }) {
   const [products, setProducts] = useReducer(productsReducer, PRODUCTS);
   const [screen, setScreen] = useReducer(screenReducer, SCREEN);
   const [cart, setCart] = useReducer(cartReducer, CART);
+  const [lightTheme, setTheme] = useState(true);
 
   // HOME ------------------------------------------------------------------------------------------
   const findLocation = () => {
@@ -20,6 +21,12 @@ export default function Provider({ children }) {
     if (pathname === ('/carrinho')) { setScreen({ type: SET_SCREEN_CART }); }
     if (pathname === ('/')) { setScreen({ type: SET_SCREEN_HOME }); }
   };
+
+  /*= =================== DARK LIGHT THEME ==================== */
+  useEffect(() => {
+    if (!lightTheme) document.body.classList.add('darkTheme');
+    if (lightTheme) document.body.classList.remove('darkTheme');
+  });
 
   // ----------------------------------------------------------------------------------------------
   // CICLOS DE VIDA
@@ -30,9 +37,11 @@ export default function Provider({ children }) {
     products,
     screen,
     cart,
+    lightTheme,
     setProducts,
     setScreen,
     setCart,
+    setTheme,
   };
 
   // ----------------------------------------------------------------------------------------------
