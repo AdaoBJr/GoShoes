@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ALink from 'react-anchor-link-smooth-scroll';
+import { BiUpArrowAlt } from 'react-icons/bi';
 import { SiFacebook, SiTwitter, SiInstagram } from 'react-icons/si';
 
 import Header from '../Components/Header';
-import ScrollTop from '../Components/ScrollTop';
 import Shoes from '../Components/Shoes';
 import img101 from '../../images/img1-1.png';
 import img1 from '../../images/img1.png';
@@ -13,6 +13,8 @@ import img4 from '../../images/img4.png';
 import img6 from '../../images/img6.png';
 
 export default function Home() {
+  const [ScrollY, setScrollY] = useState(false);
+
   /*= ==== MOUSEMOVE HOME IMG ===== */
   const move = (e) => {
     document.querySelectorAll('.move').forEach((layer) => {
@@ -26,6 +28,12 @@ export default function Home() {
     });
   };
   document.addEventListener('mousemove', move);
+
+  /*= =================== SHOW SCROLL TOP ==================== */
+  const scrollTop = () => {
+    if (window.scrollY >= 560) { setScrollY(true); } else { setScrollY(false); }
+  };
+  window.addEventListener('scroll', scrollTop);
   // ---------------------------------------------------------------------------------------------
   // CICLOS DE VIDA
 
@@ -33,7 +41,9 @@ export default function Home() {
   return (
     <div>
       {/* <!--========== SCROLL TOP ==========--> */}
-      <ScrollTop />
+      <ALink href="#home" className={(ScrollY) ? 'scrolltop showScroll' : 'scrolltop'} id="scroll-top">
+        <BiUpArrowAlt className="scrolltopIcon" />
+      </ALink>
       {/* <!--========== HEADER ==========--> */}
       <Header />
 
