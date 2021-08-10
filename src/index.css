@@ -177,7 +177,7 @@ button {
 
 /*========== HEADER ==========*/
 
-.header{
+.header {
   width: 100%;
   position: fixed;
   top: 0;
@@ -203,7 +203,6 @@ button {
   padding: 1px 3px;
   margin: 0 2px;
   border-radius: 50%;
-  /* cursor: pointer; */
   transition: 0.5s;
 }
 
@@ -359,7 +358,7 @@ button {
 }
 
 /* Scroll top */
-.scrolltop{
+.scrolltop {
   position: fixed;
   right: 1rem;
   bottom: -20%;
@@ -370,22 +369,38 @@ button {
   background: rgba(218,37,53,.5);
   border-radius: .4rem;
   z-index: var(--z-element1);
-  transition: .4s;
-  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  transition: .5s;
 }
 
-.scrolltop:hover{
+.scrolltop:hover {
   background-color: var(--first-color);
 }
 
-.scrolltopIcon{
-  font-size: 1.5rem;
+.scrolltopIcon {
+  font-size: 2rem;
   color: var(--body-color);
 }
 
-.showScroll{
-  visibility: visible;
+.showScroll {
+  opacity: 1;
   bottom: 1.5rem;
+  animation-duration: .5s;
+  animation-delay: .5s;
+  animation-name: animate-scroll;
+}
+
+@keyframes animate-scroll {
+  0%{
+    transform: scale(1,1);
+  }
+  50%{
+    transform: scale(1.2,1.2);
+  }
+  100%{
+    transform: scale(1,1);
+  }
 }
 
 /*========== HOME ==========*/
@@ -1012,6 +1027,18 @@ button {
     animation-name: animate-buttons;
   }
 
+  @keyframes animate-buttons {
+    0%{
+      transform: scale(1,1);
+    }
+    50%{
+      transform: scale(1.1,1.1);
+    }
+    100%{
+      transform: scale(1,1);
+    }
+  }
+
   .addButton {
     height: 3rem;
     transition: 0.5s;
@@ -1030,18 +1057,6 @@ button {
   .cartItems {
     bottom: 2rem;
     height: 2.3rem;
-  }
-
-  @keyframes animate-buttons {
-    0%{
-      transform: scale(1,1);
-    }
-    50%{
-      transform: scale(1.1,1.1);
-    }
-    100%{
-      transform: scale(1,1);
-    }
   }
 
   /*========== FAVORITED ==========*/
