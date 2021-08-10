@@ -77,7 +77,11 @@ export const sumCart = (cart) => {
 
 // VIEW QUANTIDADE DE PRODUTOS EM ESTOQUE
 export const showQty = (id, cart) => {
-  const product = cart.filter((c) => c.id === id)[0];
-  const qty = (product) ? product.count : 0;
+  if (id) {
+    const product = cart.filter((c) => c.id === id)[0];
+    const qty = (product) ? product.count : 0;
+    return qty;
+  }
+  const qty = cart.reduce((acc, currValue) => acc + currValue.count, 0);
   return qty;
 };

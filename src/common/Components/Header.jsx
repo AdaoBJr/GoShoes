@@ -6,11 +6,13 @@ import { BiToggleLeft, BiToggleRight } from 'react-icons/bi';
 import { HiSun } from 'react-icons/hi';
 import { RiMoonClearFill } from 'react-icons/ri';
 import store from '../../context/store';
+import { showQty } from '../../functions';
 
 export default function Header() {
-  const { products: { itsHome } } = useContext(store);
+  const { products: { itsHome }, cart: { cart } } = useContext(store);
   const [showMenu, setShowMenu] = useState(false);
   const [lightTheme, setTheme] = useState(true);
+  const Qty = showQty(false, cart);
 
   return (
     <>
@@ -51,7 +53,7 @@ export default function Header() {
               >
                 <Link to="/carrinho" className="navLink display">
                   Carrinho
-                  <div className="numCount">2</div>
+                  <div className="numCount">{Qty}</div>
                 </Link>
               </li>
 
