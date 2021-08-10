@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ALink from 'react-anchor-link-smooth-scroll';
 
@@ -8,11 +9,22 @@ import { RiMoonClearFill } from 'react-icons/ri';
 import store from '../../context/store';
 import { showQty } from '../../functions';
 
-export default function Header() {
-  const { products: { itsHome }, cart: { cart } } = useContext(store);
+export default function Header({ colec }) {
+  const {
+    cart: { cart },
+    screen: {
+      home, fav, carT,
+    },
+  } = useContext(store);
+
   const [showMenu, setShowMenu] = useState(false);
   const [lightTheme, setTheme] = useState(true);
   const Qty = showQty(false, cart);
+
+  // ---------------------------------------------------------------------------------------------
+  // CICLOS DE VIDA
+
+  // ---------------------------------------------------------------------------------------------
 
   return (
     <>
@@ -28,30 +40,70 @@ export default function Header() {
                 onClick={() => setShowMenu(!showMenu)}
                 aria-hidden
               >
-                <Link to="/" className="navLink activeLink">Home</Link>
+                {(home) ? (
+                  <ALink
+                    href="#home"
+                    className={(home && !colec) ? (
+                      'navLink activeLink') : 'navLink'}
+                  >
+                    Home
+                  </ALink>
+                ) : (
+                  <Link
+                    to="/"
+                    className={(home && !colec) ? 'navLink activeLink' : 'navLink'}
+                  >
+                    Home
+                  </Link>
+                )}
+                {/* <Link
+                  to="/"
+                  className={(home && !colec) ? 'navLink activeLink' : 'navLink'}
+                >
+                  Home
+                </Link> */}
               </li>
               <li
                 className="navItem"
                 onClick={() => { setShowMenu(!showMenu); }}
                 aria-hidden
               >
-                {(itsHome) ? (<ALink href="#shoes" className="navLink">Coleções</ALink>) : (
-                  <Link to="/" className="navLink">Coleções</Link>
+                {(home) ? (
+                  <ALink
+                    href="#shoes"
+                    className={(colec) ? (
+                      'navLink activeLink') : 'navLink'}
+                  >
+                    Coleções
+                  </ALink>
+                ) : (
+                  <Link
+                    to="/"
+                    className={(colec) ? 'navLink activeLink' : 'navLink'}
+                  >
+                    Coleções
+                  </Link>
                 )}
+                {/* <Link
+                  to="/"
+                  className={(colec) ? 'navLink activeLink' : 'navLink'}
+                >
+                  Coleções
+                </Link> */}
               </li>
               <li
                 className="navItem"
                 onClick={() => setShowMenu(!showMenu)}
                 aria-hidden
               >
-                <Link to="/favoritos" className="navLink">Favoritos</Link>
+                <Link to="/favoritos" className={(fav) ? 'navLink activeLink' : 'navLink'}>Favoritos</Link>
               </li>
               <li
                 className="navItem"
                 onClick={() => setShowMenu(!showMenu)}
                 aria-hidden
               >
-                <Link to="/carrinho" className="navLink display">
+                <Link to="/carrinho" className={(carT) ? 'navLink activeLink display' : 'navLink display'}>
                   Carrinho
                   {(Qty !== 0) && (
                   <div className={(Qty === 0) ? 'numCount' : 'numCount showNumCount'}>
@@ -93,3 +145,7 @@ export default function Header() {
     </>
   );
 }
+
+Header.propTypes = {
+  colec: PropTypes.bool.isRequired,
+};

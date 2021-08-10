@@ -39,6 +39,7 @@ export default function Home() {
   // CICLOS DE VIDA
 
   // ---------------------------------------------------------------------------------------------
+
   return (
     <div>
       {/* <!--========== SCROLL TOP ==========--> */}
@@ -46,7 +47,7 @@ export default function Home() {
         <BiUpArrowAlt className="scrolltopIcon" />
       </ALink>
       {/* <!--========== HEADER ==========--> */}
-      <Header />
+      <Header colec={ScrollY} />
 
       <main className="main">
         {/* <!--========== HOME ==========--> */}

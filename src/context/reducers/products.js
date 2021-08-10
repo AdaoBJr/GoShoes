@@ -1,5 +1,5 @@
 import {
-  ADD_PRODUCTS, SET_FAVORITE, ADD_CART, SET_LOCATION, ADD_TOTAL_CART,
+  ADD_PRODUCTS, SET_FAVORITE, ADD_CART, ADD_TOTAL_CART,
 } from '../store';
 
 const productsReducer = (state, { type, payload }) => { // Desestruturação do Action
@@ -24,13 +24,6 @@ const productsReducer = (state, { type, payload }) => { // Desestruturação do 
       return {
         ...state,
         cart,
-      };
-    }
-    case SET_LOCATION: {
-      const { itsHome } = payload;
-      return {
-        ...state,
-        itsHome,
       };
     }
     case ADD_TOTAL_CART: {

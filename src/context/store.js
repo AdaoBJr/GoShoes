@@ -2,16 +2,16 @@
 import { createContext } from 'react';
 
 // INITIAL STATES ----------------------------------------------------------------
-export const USER = {
-  email: '',
-  password: '',
+export const SCREEN = {
+  home: true,
+  fav: false,
+  carT: false,
 };
 
 export const PRODUCTS = {
   fetchOn: true,
   loading: undefined,
   done: undefined,
-  itsHome: true,
   allProducts: [],
   products: [],
   favorited: [],
@@ -25,7 +25,7 @@ export const CART = {
 
 // COMBINE -----------------------------------------------------------------------
 
-export const INITIAL_STATE = { ...USER, ...PRODUCTS, ...CART };
+export const INITIAL_STATE = { ...SCREEN, ...PRODUCTS, ...CART };
 
 const store = createContext(INITIAL_STATE);
 
@@ -44,11 +44,6 @@ export const setFav = (favorited) => ({ // ACTION-CREATOR -> SET_FAVORITE
   type: SET_FAVORITE, payload: { favorited },
 });
 
-export const SET_LOCATION = 'SET_LOCATION'; // ACTION -> SET_LOCATION
-export const findHome = (itsHome) => ({ // ACTION-CREATOR -> SET_LOCATION
-  type: SET_LOCATION, payload: { itsHome },
-});
-
 export const ADD_CART = 'ADD_CART'; // ACTION -> ADD_PRODUCTS
 export const addCart = (cart) => ({ // ACTION-CREATOR -> ADD_PRODUCTS
   type: ADD_CART, payload: { cart },
@@ -58,3 +53,7 @@ export const ADD_TOTAL_CART = 'ADD_TOTAL_CART'; // ACTION -> ADD_TOTAL_CART
 export const addTotalCart = (totalCart) => ({ // ACTION-CREATOR -> ADD_TOTAL_CART
   type: ADD_TOTAL_CART, payload: { totalCart },
 });
+
+export const SET_SCREEN_HOME = 'SET_SCREEN_HOME'; // ACTION -> SET_SCREEN_HOME
+export const SET_SCREEN_FAV = 'SET_SCREEN_FAV'; // ACTION -> SET_SCREEN_FAV
+export const SET_SCREEN_CART = 'SET_SCREEN_CART'; // ACTION -> SET_SCREEN_CART
