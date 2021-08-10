@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import ALink from 'react-anchor-link-smooth-scroll';
 import { BiUpArrowAlt } from 'react-icons/bi';
-import { SiFacebook, SiTwitter, SiInstagram } from 'react-icons/si';
+// import { SiFacebook, SiTwitter, SiInstagram } from 'react-icons/si';
 
 import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 import Shoes from '../Components/Shoes';
 import img101 from '../../images/img1-1.png';
 import img1 from '../../images/img1.png';
@@ -88,36 +89,37 @@ export default function Home() {
         <Shoes />
       </main>
       {/* <!--========== FOOTER ==========--> */}
-      <footer className="footer section">
+      <Footer />
+      {/* <footer className="footer section">
         <div className="footerContainer bdContainer bdGrid">
           <div className="footerContent">
             <h3 className="footerTitle">
-              <a href className="footerLogo">Christmas Gift</a>
+              <a href className="footerLogo">GoShoes</a>
             </h3>
             <p className="footerDescription">
-              I sent a gift and it gives
+              Envie um presente e
               {' '}
               <br />
               {' '}
-              happiness
+              proporcione alegria
             </p>
           </div>
 
           <div className="footerContent">
-            <h3 className="footerTitle">Our Services</h3>
+            <h3 className="footerTitle">Nossos Serviços</h3>
             <ul>
-              <li><a href className="footerLink">Pricing </a></li>
-              <li><a href className="footerLink">Discounts</a></li>
-              <li><a href className="footerLink">Shipping mode</a></li>
+              <li><a href className="footerLink">Orçamento</a></li>
+              <li><a href className="footerLink">Descontos</a></li>
+              <li><a href className="footerLink">Frete</a></li>
             </ul>
           </div>
 
           <div className="footerContent">
-            <h3 className="footerTitle">Our Company</h3>
+            <h3 className="footerTitle">Quem somos</h3>
             <ul>
               <li><a href className="footerLink">Blog</a></li>
-              <li><a href className="footerLink">About us</a></li>
-              <li><a href className="footerLink">Our mision</a></li>
+              <li><a href className="footerLink">Sobre nós</a></li>
+              <li><a href className="footerLink">Nossa Missão</a></li>
             </ul>
           </div>
 
@@ -130,7 +132,7 @@ export default function Home() {
         </div>
 
         <p className="footerCopy">&#169; 2021 AdamBJr. All right reserved</p>
-      </footer>
+      </footer> */}
     </div>
   );
 }

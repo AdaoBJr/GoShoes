@@ -7,6 +7,7 @@ import {
   CarT, Fav, removeItem,
 } from '../../functions';
 import CartFooter from '../Components/CartFooter';
+import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 
 export default function Cart() {
@@ -81,6 +82,7 @@ export default function Cart() {
       <>
         <Header />
         <h1 className="sectionTitle">Não temos itens no carrinho</h1>
+        <Footer />
       </>
     );
   }
@@ -90,6 +92,7 @@ export default function Cart() {
       <Header />
       {renderProducts()}
       <CartFooter />
+      <Footer />
     </>
   );
 }

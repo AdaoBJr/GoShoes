@@ -819,13 +819,17 @@ button {
 }
 
 .footerCart {
+  /* width: 97%; */
   width: 100%;
+  /* margin: 0 auto -8rem auto; */
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: var(--z-fixed);
   background-color: var(--body-color);
+  /* border-radius: .8rem; */
   box-shadow: 0 3px 12px rgba(65,11,16,.15);
+  /* box-shadow: 0 0 5px rgba(65,11,16,.15);  */
 }
 
 .footerNav {
@@ -905,6 +909,10 @@ button {
 
 
 /*========== FOOTER ==========*/
+.footer {
+  margin-top: 10rem;
+}
+
 .footerContainer{
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
@@ -935,9 +943,12 @@ button {
   font-size: 1.5rem;
   color: var(--title-color);
   margin-right: var(--mb-3);
+  cursor: pointer;
+  transition: .5s;
 }
 
 .footerSocial:hover{
+  transform: scale(1.50);
   color: var(--first-color);
 }
 

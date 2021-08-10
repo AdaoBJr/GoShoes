@@ -4,6 +4,7 @@ import {
 } from 'react-icons/fa';
 import store, { addCart, setFav } from '../../context/store';
 import { CarT, Fav, showQty } from '../../functions';
+import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 
 export default function Favorited() {
@@ -77,6 +78,7 @@ export default function Favorited() {
       <>
         <Header />
         <h1 className="sectionTitle">Não temos itens favoritos</h1>
+        <Footer />
       </>
     );
   }
@@ -85,6 +87,7 @@ export default function Favorited() {
       {/* <!--========== FAVORITOS ==========--> */}
       <Header />
       {renderProducts()}
+      <Footer />
     </>
   );
 }
