@@ -57,13 +57,15 @@ export default function CartFooter() {
               .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
           </h3>
         </div>
-        <button
-          type="button"
-          className="shopBtn"
-        >
-          <FaShoppingBag className="shopIcon" />
-          Comprar
-        </button>
+        <Link to="/checkout">
+          <button
+            type="button"
+            className="shopBtn"
+          >
+            <FaShoppingBag className="shopIcon" />
+            Comprar
+          </button>
+        </Link>
       </footer>
     </>
   );
