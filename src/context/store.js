@@ -2,16 +2,17 @@
 import { createContext } from 'react';
 
 // INITIAL STATES ----------------------------------------------------------------
+
 export const SCREEN = {
+  fetchOn: true,
+  loading: undefined,
+  done: undefined,
   home: true,
   fav: false,
   carT: false,
 };
 
 export const PRODUCTS = {
-  fetchOn: true,
-  loading: undefined,
-  done: undefined,
   allProducts: [],
   products: [],
   favorited: [],
@@ -52,6 +53,16 @@ export const addCart = (cart) => ({ // ACTION-CREATOR -> ADD_PRODUCTS
 export const ADD_TOTAL_CART = 'ADD_TOTAL_CART'; // ACTION -> ADD_TOTAL_CART
 export const addTotalCart = (totalCart) => ({ // ACTION-CREATOR -> ADD_TOTAL_CART
   type: ADD_TOTAL_CART, payload: { totalCart },
+});
+
+export const SET_FETCHON_DONE = 'SET_FETCHON_DONE'; // ACTION -> SET_FETCHON_DONE
+export const setFetchOnDone = (fetchOn, done) => ({ // ACTION-CREATOR -> SET_FETCHON_DONE
+  type: SET_FETCHON_DONE, payload: { fetchOn, done },
+});
+
+export const SET_DONE_LOADING = 'SET_DONE_LOADING'; // ACTION -> SET_DONE_LOADING
+export const setDoneLoading = (done, loading) => ({ // ACTION-CREATOR -> SET_DONE_LOADING
+  type: SET_DONE_LOADING, payload: { done, loading },
 });
 
 export const SET_SCREEN_HOME = 'SET_SCREEN_HOME'; // ACTION -> SET_SCREEN_HOME

@@ -1,9 +1,25 @@
 import {
-  SET_SCREEN_HOME, SET_SCREEN_FAV, SET_SCREEN_CART,
+  SET_SCREEN_HOME, SET_SCREEN_FAV, SET_SCREEN_CART, SET_FETCHON_DONE, SET_DONE_LOADING,
 } from '../store';
 
-const screenReducer = (state, { type }) => { // Desestruturação do Action
+const screenReducer = (state, { type, payload }) => { // Desestruturação do Action
   switch (type) {
+    case SET_FETCHON_DONE: {
+      const { fetchOn, done } = payload;
+      return {
+        ...state,
+        fetchOn,
+        done,
+      };
+    }
+    case SET_DONE_LOADING: {
+      const { done, loading } = payload;
+      return {
+        ...state,
+        loading,
+        done,
+      };
+    }
     case SET_SCREEN_HOME: {
       return {
         ...state,
