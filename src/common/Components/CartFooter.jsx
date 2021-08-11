@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { FaTrash, FaShoppingBag } from 'react-icons/fa';
 import { TiCancel } from 'react-icons/ti';
 
-import store, { addCart, addTotalCart } from '../../context/store';
+import store, { addCart, addTotalCart, setFetchOnDone } from '../../context/store';
 import { sumCart } from '../../functions';
 
 export default function CartFooter() {
-  const { cart: { updateSum, cart, totalCart }, setCart } = useContext(store);
+  const { cart: { updateSum, cart, totalCart }, setCart, setScreen } = useContext(store);
   const [minWidth, setMinWidth] = useState(false);
 
   const checkWidthScreen = () => {
@@ -61,6 +61,7 @@ export default function CartFooter() {
           <button
             type="button"
             className="shopBtn"
+            onClick={() => setScreen(setFetchOnDone(true))}
           >
             <FaShoppingBag className="shopIcon" />
             Comprar
