@@ -175,6 +175,21 @@ button {
   gap: 1.5rem;
 }
 
+.bgLoading {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+  width: 90vw;
+  height: 90vh;
+  /* width: 100vw;
+  height: 100vh; */
+  background-color: var(--first-color-darken);
+  border-radius: 8rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2),
+              0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
 /*========== HEADER ==========*/
 
 .header {
@@ -959,6 +974,49 @@ button {
   margin-top: 4rem;
 }
 
+/*========== CHECKOUT ==========*/
+.checkoutTitle {
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  text-align: center;
+  /* margin-top: var(--mb-1); */
+  margin-bottom: var(--mb-5);
+}
+
+.itemsBought {
+  display: grid;
+  justify-content: flex-end;
+}
+
+.checkoutCategory {
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-1);
+  color: var(--text-color-light);
+}
+
+.checkoutAnimation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.checkoutBack {
+  font-size: var(--h3-font-size);
+  color: var(--first-color-darken);
+  cursor: pointer;
+  transition: .5s;
+}
+
+.checkoutBack:hover {
+  color: var(--title-home-color);
+}
+
+.checkoutDashboard {
+  width: 650px;
+}
+
+
 /*========== MEDIA QUERIES ==========*/
 
 @media screen and (min-width: 768px){
@@ -1184,6 +1242,16 @@ button {
 
   .cancelIcon {
     font-size: 1.5rem;
+  }
+
+  /*========== CHECKOUT ==========*/
+  .checkoutTitle {
+    margin-top: var(--mb-5);
+    margin-bottom: var(--mb-1);
+  }
+
+  .checkoutDashboard {
+    width: 420px;
   }
 }
 

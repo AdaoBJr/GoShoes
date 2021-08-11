@@ -1,16 +1,22 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ALink from 'react-anchor-link-smooth-scroll';
 
 import { BiUpArrowAlt } from 'react-icons/bi';
-import store, { } from '../../context/store';
+import { TiArrowBack } from 'react-icons/ti';
+import store, { addCart, setDoneLoading, setFetchOnDone } from '../../context/store';
 import { showQty } from '../../functions';
+import Dashboard from '../Components/Dashboard';
 import Footer from '../Components/Footer';
-import Header from '../Components/Header';
+import Loading from '../Components/Loading';
 
 export default function Checkout() {
   const [ScrollY, setScrollY] = useState(false);
   const {
+    screen: { fetchOn, loading, done },
     cart: { cart, totalCart },
+    setScreen,
+    setCart,
   } = useContext(store);
 
   const Qty = showQty(false, cart);
@@ -23,40 +29,70 @@ export default function Checkout() {
   // ---------------------------------------------------------------------------------------------
 
   const renderProducts = () => (
-    <section className="section bdContainer" id="fav">
+    <section className="bdContainer" id="checkout">
       {/* <!--========== SCROLL TOP ==========--> */}
-      <ALink href="#fav" className={(ScrollY) ? 'scrolltop showScroll' : 'scrolltop'}>
+      <ALink href="#checkout" className={(ScrollY) ? 'scrolltop showScroll' : 'scrolltop'}>
         <BiUpArrowAlt className="scrolltopIcon" />
       </ALink>
 
-      <h2 className="sectionTitle">
+      <h2 className="checkoutTitle">
         Compra Concluída com Sucesso🎉🎉🎉
       </h2>
-      <p className="shoesCategory">
-        {(Qty) === 1 ? `${Qty} item comprado` : (
-          `${Qty} itens comprados`)}
-        {`Valor: R$ ${totalCart
-          .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
-      </p>
-
-      <div className="favContainer bdGrid">
-        <div />
+      <div className="itemsBought">
+        <h4 className="checkoutCategory">
+          Resumo da Compra:
+        </h4>
+        <p className="checkoutCategory">
+          {(Qty) === 1 ? `${Qty} Item Comprado` : (
+            `${Qty} Itens Comprados`)}
+        </p>
+        <p className="checkoutCategory">
+          {`Valor: R$ ${totalCart
+            .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
+        </p>
       </div>
+      <div className="checkoutAnimation">
+        <Dashboard />
+        <Link
+          to="/"
+          onClick={() => setCart(addCart([]))}
+        >
+          <h3 className="checkoutBack">
+            <TiArrowBack style={{ fontSize: '1.6rem' }} />
+            {' '}
+            Continuar Comprando?
+          </h3>
+        </Link>
+
+      </div>
+
     </section>
   );
-  // if (!favorited.length) {
-  //   return (
-  //     <>
-  //       <Header />
-  //       <h1 className="sectionTitle">Não temos itens favoritos</h1>
-  //       <Footer />
-  //     </>
-  //   );
-  // }
+
+  const getLoading = () => {
+    const LOADING_TIME = 3000;
+    const DONE_TIME = 2000;
+
+    setTimeout(() => {
+      setScreen(setDoneLoading(undefined, true));
+      setTimeout(() => {
+        setScreen(setDoneLoading(true));
+      }, DONE_TIME);
+    }, LOADING_TIME);
+    setScreen(setFetchOnDone(false, undefined));
+  };
+
+  // ---------------------------------------------------------------------------------------------
+  // CICLOS DE VIDA
+
+  useEffect(() => { if (fetchOn) getLoading(); });
+
+  // ---------------------------------------------------------------------------------------------
+
+  if (!done) { return (<Loading loading={loading} />); }
   return (
     <>
       {/* <!--========== FAVORITOS ==========--> */}
-      <Header />
       {renderProducts()}
       <Footer />
     </>
