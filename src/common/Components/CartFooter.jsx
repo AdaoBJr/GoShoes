@@ -8,7 +8,6 @@ import { sumCart } from '../../functions';
 
 export default function CartFooter() {
   const {
-    // lightTheme,
     cart: { updateSum, cart, totalCart }, setCart, setScreen,
   } = useContext(store);
   const [minWidth, setMinWidth] = useState(false);
