@@ -19,71 +19,77 @@ export default function Shoes() {
     return newName;
   };
 
-  const renderProducts = (Products) => (
-    <section className="shoes section bdContainer" id="shoes">
-      <h2 data-aos="fade-down" className="sectionTitle">
-        Calçados e Acessórios
-      </h2>
+  const renderProducts = (Products) => {
+    const initialPg = 0;
+    const limitPg = 6;
 
-      <h2 data-aos="fade-down" className="collectionTitle">
-        Novas Coleções
-      </h2>
-      <div className="shoesContainer bdGrid">
-        {Products.map((product, index) => {
-          const {
-            id, title, thumbnail, available_quantity: availableQty, price,
-          } = product;
-          const Qty = showQty(id, cart);
+    const screenProducts = Products.slice(initialPg, limitPg);
+    return (
+      <section className="shoes section bdContainer" id="shoes">
+        <h2 data-aos="fade-down" className="sectionTitle">
+          Calçados e Acessórios
+        </h2>
 
-          return (
-            <div data-aos="fade-down" data-aos-delay={200 + index * 300} className="shoesContent" key={id}>
-              <img src={thumbnail} alt="" className="shoesImg" />
-              <h3 className="shoesTitle">{threeWordsTitle(title)}</h3>
-              <span className="shoesCategory">
-                {(availableQty) === 1 ? `${availableQty} disponível` : (
-                  `${availableQty} disponíveis`)}
-              </span>
-              <span className="shoesPreci">
-                {`R$ ${price
-                  .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
-              </span>
-              <div className="addRemoveButtons">
-                <div
-                  aria-hidden
-                  className={(Qty > 0) ? 'removeButton' : 'opacity'}
-                  onClick={() => setCart(addCart(CarT(product, cart, false)))}
-                >
-                  <FaMinus />
+        <h2 data-aos="fade-down" className="collectionTitle">
+          Novas Coleções
+        </h2>
+        <div className="shoesContainer bdGrid">
+          {screenProducts.map((product, index) => {
+            const {
+              id, title, thumbnail, available_quantity: availableQty, price,
+            } = product;
+            const Qty = showQty(id, cart);
+
+            return (
+              <div data-aos="fade-down" data-aos-delay={200 + index * 300} className="shoesContent" key={id}>
+                <img src={thumbnail} alt="" className="shoesImg" />
+                <h3 className="shoesTitle">{threeWordsTitle(title)}</h3>
+                <span className="shoesCategory">
+                  {(availableQty) === 1 ? `${availableQty} disponível` : (
+                    `${availableQty} disponíveis`)}
+                </span>
+                <span className="shoesPreci">
+                  {`R$ ${price
+                    .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
+                </span>
+                <div className="addRemoveButtons">
+                  <div
+                    aria-hidden
+                    className={(Qty > 0) ? 'removeButton' : 'opacity'}
+                    onClick={() => setCart(addCart(CarT(product, cart, false)))}
+                  >
+                    <FaMinus />
+                  </div>
+                  <div
+                    aria-hidden
+                    className={(Qty === 0) ? 'cartItems' : 'cartItemsN1'}
+                    onClick={() => setCart(addCart(CarT(product, cart, true)))}
+                  >
+                    <FaShoppingCart />
+                    <div className="numberItems">{ Qty }</div>
+                  </div>
+                  <div
+                    aria-hidden
+                    className={(Qty > 0) ? 'addButton' : 'opacity'}
+                    onClick={() => setCart(addCart(CarT(product, cart, true)))}
+                  >
+                    <FaPlus />
+                  </div>
                 </div>
                 <div
                   aria-hidden
-                  className={(Qty === 0) ? 'cartItems' : 'cartItemsN1'}
-                  onClick={() => setCart(addCart(CarT(product, cart, true)))}
+                  className="button favoritedButton"
+                  onClick={() => setProducts(setFav(Fav(product, favorited)))}
                 >
-                  <FaShoppingCart />
-                  <div className="numberItems">{ Qty }</div>
-                </div>
-                <div
-                  aria-hidden
-                  className={(Qty > 0) ? 'addButton' : 'opacity'}
-                  onClick={() => setCart(addCart(CarT(product, cart, true)))}
-                >
-                  <FaPlus />
+                  {(favorited.find((fav) => fav.id === id)) ? <FaHeart /> : <FaRegHeart /> }
                 </div>
               </div>
-              <div
-                aria-hidden
-                className="button favoritedButton"
-                onClick={() => setProducts(setFav(Fav(product, favorited)))}
-              >
-                {(favorited.find((fav) => fav.id === id)) ? <FaHeart /> : <FaRegHeart /> }
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
+            );
+          })}
+        </div>
+      </section>
+    );
+  };
 
   const getProducts = async () => {
     const response = await fetchAPI(CALÇADOS);
