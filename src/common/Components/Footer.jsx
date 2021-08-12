@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footerContainer bdContainer bdGrid">
         <div className="footerContent">
           <h3 className="footerTitle">
-            <a href className="footerLogo">GoShoes</a>
+            <p className="footerLogo">GoShoes</p>
           </h3>
           <p className="footerDescription">
             Envie um presente e
@@ -21,18 +21,18 @@ export default function Footer() {
         <div className="footerContent">
           <h3 className="footerTitle">Nossos Serviços</h3>
           <ul>
-            <li><a href className="footerLink">Orçamento</a></li>
-            <li><a href className="footerLink">Descontos</a></li>
-            <li><a href className="footerLink">Frete</a></li>
+            <li><p className="footerLink">Orçamento</p></li>
+            <li><p className="footerLink">Descontos</p></li>
+            <li><p className="footerLink">Frete</p></li>
           </ul>
         </div>
 
         <div className="footerContent">
           <h3 className="footerTitle">Quem somos</h3>
           <ul>
-            <li><a href className="footerLink">Blog</a></li>
-            <li><a href className="footerLink">Sobre nós</a></li>
-            <li><a href className="footerLink">Nossa Missão</a></li>
+            <li><p className="footerLink">Blog</p></li>
+            <li><p className="footerLink">Sobre nós</p></li>
+            <li><p className="footerLink">Nossa Missão</p></li>
           </ul>
         </div>
 
