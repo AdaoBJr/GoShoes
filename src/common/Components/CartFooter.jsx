@@ -7,7 +7,10 @@ import store, { addCart, addTotalCart, setFetchOnDone } from '../../context/stor
 import { sumCart } from '../../functions';
 
 export default function CartFooter() {
-  const { cart: { updateSum, cart, totalCart }, setCart, setScreen } = useContext(store);
+  const {
+    // lightTheme,
+    cart: { updateSum, cart, totalCart }, setCart, setScreen,
+  } = useContext(store);
   const [minWidth, setMinWidth] = useState(false);
 
   const checkWidthScreen = () => {
