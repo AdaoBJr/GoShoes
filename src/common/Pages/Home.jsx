@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import ALink from 'react-anchor-link-smooth-scroll';
+import React, { useEffect, useState } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import { BiUpArrowAlt } from 'react-icons/bi';
+import ALink from 'react-anchor-link-smooth-scroll';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
@@ -37,6 +39,7 @@ export default function Home() {
 
   // ---------------------------------------------------------------------------------------------
   // CICLOS DE VIDA
+  useEffect(() => { Aos.init({ duration: 2000 }); }, []);
 
   // ---------------------------------------------------------------------------------------------
 
@@ -53,7 +56,7 @@ export default function Home() {
         {/* <!--========== HOME ==========--> */}
         <section className="home" id="home">
           <div className="homeContainer bdGrid">
-            <div className="homeImg">
+            <div data-aos="fade-down" data-aos-delay="500" className="homeImg">
               <img src={img101} alt="img-1" data-speed="-2" className="imgs move" />
               <img src={img1} alt="img-1" data-speed="7" className="imgs move" />
               <img src={img2} alt="img-2" data-speed="-4" className="imgs move" />
@@ -61,7 +64,7 @@ export default function Home() {
               <img src={img3} alt="img-3" data-speed="-5" className="img3 move" />
               <img src={img6} alt="img-6" data-speed="2" className="img6 move" />
             </div>
-            <div className="homeData">
+            <div data-aos="fade-down" className="homeData">
               <h1 className="homeTitle">
                 GoShoes
               </h1>

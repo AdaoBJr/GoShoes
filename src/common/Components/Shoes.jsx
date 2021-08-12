@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
 } from 'react-icons/fa';
@@ -19,22 +21,22 @@ export default function Shoes() {
 
   const renderProducts = (Products) => (
     <section className="shoes section bdContainer" id="shoes">
-      <h2 className="sectionTitle">
+      <h2 data-aos="fade-down" className="sectionTitle">
         Calçados e Acessórios
       </h2>
 
-      <h2 className="collectionTitle">
+      <h2 data-aos="fade-down" className="collectionTitle">
         Novas Coleções
       </h2>
       <div className="shoesContainer bdGrid">
-        {Products.map((product) => {
+        {Products.map((product, index) => {
           const {
             id, title, thumbnail, available_quantity: availableQty, price,
           } = product;
           const Qty = showQty(id, cart);
 
           return (
-            <div className="shoesContent" key={id}>
+            <div data-aos="fade-down" data-aos-delay={200 + index * 300} className="shoesContent" key={id}>
               <img src={thumbnail} alt="" className="shoesImg" />
               <h3 className="shoesTitle">{threeWordsTitle(title)}</h3>
               <span className="shoesCategory">
@@ -108,6 +110,7 @@ export default function Shoes() {
   // ----------------------------------------------------------------------------------------------
   // CICLOS DE VIDA
   useEffect(getProducts, []);
+  useEffect(() => { Aos.init({ duration: 2000 }); }, []);
 
   // ----------------------------------------------------------------------------------------------
 
