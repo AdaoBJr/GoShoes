@@ -1,5 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ALink from 'react-anchor-link-smooth-scroll';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
 } from 'react-icons/fa';
@@ -23,6 +25,12 @@ export default function Favorited() {
 
   // ---------------------------------------------------------------------------------------------
 
+  // ---------------------------------------------------------------------------------------------
+  // CICLOS DE VIDA
+  useEffect(() => { Aos.init({ duration: 2000 }); }, []);
+
+  // ---------------------------------------------------------------------------------------------
+
   const renderProducts = () => (
     <section className="section bdContainer" id="fav">
       {/* <!--========== SCROLL TOP ==========--> */}
@@ -30,19 +38,19 @@ export default function Favorited() {
         <BiUpArrowAlt className="scrolltopIcon" />
       </ALink>
 
-      <h2 className="sectionTitle">
+      <h2 data-aos="fade-down" className="sectionTitle">
         Favoritos
       </h2>
 
       <div className="favContainer bdGrid">
-        {favorited.map((product) => {
+        {favorited.map((product, index) => {
           const {
             id, title, thumbnail, availableQuantity, price,
           } = product;
           const Qty = showQty(id, cart);
 
           return (
-            <div className="favContent" key={id}>
+            <div data-aos="fade-down" data-aos-delay={200 + index * 300} className="favContent" key={id}>
               <img src={thumbnail} alt="" className="favImg" />
               <h3 className="favTitle">{title}</h3>
               <span className="favCategory">
