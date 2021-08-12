@@ -1,5 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ALink from 'react-anchor-link-smooth-scroll';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import {
   FaHeart, FaRegHeart, FaMinus, FaPlus, FaTimes,
 } from 'react-icons/fa';
@@ -34,18 +36,18 @@ export default function Cart() {
         <BiUpArrowAlt className="scrolltopIcon" />
       </ALink>
 
-      <h2 className="sectionTitle">
+      <h2 data-aos="fade-down" className="sectionTitle">
         Carrinho de Compras
       </h2>
 
       <div className="cartContainer bdGrid">
-        {cart.map((product) => {
+        {cart.map((product, index) => {
           const {
             id, title, thumbnail, availableQuantity, count, totalValue,
           } = product;
 
           return (
-            <div className="cartContent" key={id}>
+            <div data-aos="fade-down" data-aos-delay={200 + index * 300} className="cartContent" key={id}>
               <div
                 aria-hidden
                 className="button removedButton"
@@ -95,6 +97,13 @@ export default function Cart() {
       </div>
     </section>
   );
+
+  // ---------------------------------------------------------------------------------------------
+  // CICLOS DE VIDA
+  useEffect(() => { Aos.init({ duration: 2000 }); }, []);
+
+  // ---------------------------------------------------------------------------------------------
+
   if (!cart.length) {
     return (
       <>
