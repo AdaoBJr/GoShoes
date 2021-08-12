@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import {
-  FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
+  FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart, FaArrowAltCircleRight, FaArrowAltCircleLeft,
 } from 'react-icons/fa';
 
 import store, { addCart, addProducts, setFav } from '../../context/store';
@@ -10,6 +10,9 @@ import { Fav, CarT, showQty } from '../../functions';
 import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
+  const initialPage = { initialPg: 0, limitPg: 1 };
+  const [show, setShow] = useState(initialPage);
+
   const {
     products: { products, favorited }, cart: { cart }, setProducts, setCart,
   } = useContext(store);
@@ -17,6 +20,35 @@ export default function Shoes() {
   const threeWordsTitle = (title) => {
     const newName = `${title.split(' ')[0]} ${title.split(' ')[1]} ${title.split(' ')[2]}`;
     return newName;
+  };
+
+  const nextSlide = () => {
+    const { limitPg } = show;
+    const limit = 6;
+    if (limitPg >= products.length - 1) {
+      setShow(initialPage);
+    } else {
+      setShow((prevState) => ({
+        initialPg: prevState.initialPg + limit,
+        limitPg: prevState.limitPg + limit,
+      }));
+    }
+  };
+
+  const prevSlide = () => {
+    const { initialPg } = show;
+    const limit = 6;
+    if (initialPg === 0) {
+      setShow({
+        initialPg: products.length - limit,
+        limitPg: products.length - 1,
+      });
+    } else {
+      setShow((prevState) => ({
+        initialPg: prevState.initialPg - limit,
+        limitPg: prevState.limitPg - limit,
+      }));
+    }
   };
 
   const renderProducts = (Products) => {
@@ -87,6 +119,8 @@ export default function Shoes() {
             );
           })}
         </div>
+        <FaArrowAltCircleRight onClick={nextSlide} />
+        <FaArrowAltCircleLeft onClick={prevSlide} />
       </section>
     );
   };
