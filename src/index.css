@@ -1002,7 +1002,7 @@ button {
 
 .checkoutBack {
   font-size: var(--h3-font-size);
-  color: var(--first-color-darken);
+  color: var(--title-color);
   cursor: pointer;
   transition: .5s;
 }
