@@ -66,17 +66,17 @@ export default function Cart() {
               <div className="addRemoveBtns">
                 <div
                   aria-hidden
-                  className={(count > 1) ? 'removeButton' : 'opacity'}
+                  className={(count > 1) ? 'removeButtonCart' : 'opacity'}
                   onClick={() => setCart(addCart(CarT(product, cart, false)))}
                 >
                   <FaMinus />
                 </div>
-                <div className={(count > 1) ? 'cartItems' : 'cartItemsNum1'}>
+                <div className={(count > 1) ? 'cartItemsCart' : 'cartItemsN1Cart'}>
                   <div className="numberItems cartQty">{ count }</div>
                 </div>
                 <div
                   aria-hidden
-                  className="addButton"
+                  className="addButtonCart"
                   onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaPlus />

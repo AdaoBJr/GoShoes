@@ -63,7 +63,7 @@ export default function Favorited() {
                 </div>
                 <div
                   aria-hidden
-                  className={(Qty > 0) ? 'cartItems' : 'cartItemsNum1'}
+                  className={(Qty === 0) ? 'cartItems' : 'cartItemsN1'}
                   onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaShoppingCart />
@@ -71,7 +71,7 @@ export default function Favorited() {
                 </div>
                 <div
                   aria-hidden
-                  className="addButton"
+                  className={(Qty > 0) ? 'addButton' : 'opacity'}
                   onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaPlus />

@@ -618,7 +618,7 @@ button {
   position: absolute;
   right: 0;
   bottom: 4.5rem;
-  opacity: 1;
+  /* opacity: 1; */
 }
 
 .addButton {
@@ -634,6 +634,7 @@ button {
   box-shadow: 0 2px 6px rgba(65,11,16,.15);
   cursor: pointer;
   transition: 0.3s;
+  opacity: 1;
 }
 
 .removeButton {
@@ -649,6 +650,7 @@ button {
   box-shadow: 0 -2px 6px rgba(65,11,16,.15);
   cursor: pointer;
   transition: 0.3s;
+  opacity: 1;
 }
 
 .addButton:active, .removeButton:active {
@@ -673,6 +675,26 @@ button {
               0 -2px 5px rgba(0, 0, 0, 0.2);
   z-index: var(--z-element2);
   transition: 0.5s;
+  opacity: 1;
+}
+
+.cartItemsN1 {
+  position: absolute;
+  bottom: 2.6rem;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--first-color);
+  color: var(--container-color);
+  width: 2.45rem;
+  height: 2.7rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2),
+              0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: var(--z-element2);
+  transition: 0.5s;
+  opacity: 1;
 }
 
 .numberItems {
@@ -758,7 +780,25 @@ button {
   opacity: 1;
 }
 
-.cartItemsNum1 {
+.cartItemsCart {
+  position: absolute;
+  bottom: 2.6rem;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--first-color);
+  color: var(--container-color);
+  width: 2.45rem;
+  height: 2.7rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2),
+              0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: var(--z-element2);
+  transition: 0.5s;
+}
+
+.cartItemsN1Cart {
   position: absolute;
   right: 0;
   bottom: 2.6rem;
@@ -801,6 +841,41 @@ button {
   font-size: var(--normal-font-size);
   font-weight: var(--font-semi-bold);
   margin-bottom: var(--mb-1);
+}
+
+.addButtonCart {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.20rem;
+  padding: .5rem .625rem;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.removeButtonCart {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.20rem;
+  padding: .5rem .625rem;
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: 0 -2px 6px rgba(65,11,16,.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addButtonCart:active, .removeButtonCart:active {
+  color: var(--container-color);
+  background-color: var(--title-home-color);
 }
 
 .opacity {
@@ -1108,11 +1183,22 @@ button {
   }
 
   .addRemoveButtons {
-    opacity: 0;
+    /* opacity: 0; */
     bottom: 6.5rem;
   }
 
-  .shoesContent:hover .addRemoveButtons {
+  .cartItems, .cartItemsN1  {
+    bottom: 2rem;
+    height: 2.3rem;
+  }
+
+  .cartItems {
+    opacity: 0;
+  }
+
+  .shoesContent:hover .cartItems,
+  .shoesContent:hover .removeButton,
+  .shoesContent:hover .addButton {
     opacity: 1;
     animation-duration: .5s;
     animation-name: animate-buttons;
@@ -1133,11 +1219,13 @@ button {
   .addButton {
     height: 3rem;
     transition: 0.5s;
+    opacity: 0;
   }
 
   .removeButton {
     height: 3rem;
     transition: 0.5s;
+    opacity: 0;
   }
 
   .addButton:hover, .removeButton:hover {
@@ -1145,10 +1233,6 @@ button {
   background-color: var(--title-home-color);
 }
 
-  .cartItems {
-    bottom: 2rem;
-    height: 2.3rem;
-  }
 
   /*========== FAVORITED ==========*/
   .favContainer {
@@ -1164,7 +1248,9 @@ button {
     box-shadow: 0 3px 12px rgba(65,11,16,.15);
   }
 
-  .favContent:hover .addRemoveButtons {
+  .favContent:hover .cartItems,
+  .favContent:hover .removeButton,
+  .favContent:hover .addButton {
     opacity: 1;
     animation-duration: .5s;
     animation-name: animate-buttons;
@@ -1212,6 +1298,11 @@ button {
     bottom: 6.5rem;
   }
 
+  .cartItemsCart {
+    bottom: 2rem;
+    height: 2.3rem;
+  }
+
   .cartImg {
     width: 120px;
     margin-bottom: var(--mb-1);
@@ -1220,6 +1311,21 @@ button {
   .cartTitle, .cartCategory{
     text-align: initial;
   }
+
+  .addButtonCart {
+    height: 3rem;
+    transition: 0.5s;
+  }
+
+  .removeButtonCart {
+    height: 3rem;
+    transition: 0.5s;
+  }
+
+  .addButtonCart:hover, .removeButtonCart:hover {
+  color: var(--container-color);
+  background-color: var(--title-home-color);
+}
 
   .cartPreci {
     margin: var(--mb-2) 0;

@@ -55,7 +55,7 @@ export default function Shoes() {
                 </div>
                 <div
                   aria-hidden
-                  className={(Qty > 0) ? 'cartItems' : 'cartItemsNum1'}
+                  className={(Qty === 0) ? 'cartItems' : 'cartItemsN1'}
                   onClick={() => setCart(addCart(CarT(product, cart, true)))}
                 >
                   <FaShoppingCart />
