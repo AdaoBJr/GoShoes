@@ -178,24 +178,6 @@ export default function Shoes() {
     const allProducts = response.results;
     qtyPages(allProducts);
     setProducts(addProducts(response.results, allProducts));
-    // const randomProducts = Math.random() * 100;
-    // const numberCards = 9;
-    // const cardsLimit = randomProducts + numberCards;
-    // const excludedProduct = 'kit';
-
-    // const productsFiltered = allProducts.filter((product) => (
-    //   !product.title.toLowerCase().includes(excludedProduct)));
-
-    // let cardsInitial = 0;
-    // if (cardsLimit < productsFiltered.length) {
-    //   cardsInitial = cardsLimit - numberCards;
-    // } else {
-    //   cardsInitial = productsFiltered.length - numberCards;
-    // }
-
-    // const newProducts = productsFiltered.slice(cardsInitial, cardsLimit);
-    // qtyPages(newProducts);
-    // setProducts(addProducts(response.results, newProducts));
   };
 
   // ----------------------------------------------------------------------------------------------

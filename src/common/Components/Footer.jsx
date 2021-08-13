@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footerContainer bdContainer bdGrid">
         <div className="footerContent">
           <h3 className="footerTitle">
-            <p className="footerLogo">GoShoes</p>
+            <p>GoShoes</p>
           </h3>
           <p className="footerDescription">
             Envie um presente e
