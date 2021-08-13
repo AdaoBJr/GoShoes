@@ -93,7 +93,7 @@ body {
   line-height: 1.6;
 }
 
-h1,h2,h3,ul,p {
+h1,h2,h3,ul,li,p {
   margin: 0;
 }
 
@@ -102,7 +102,7 @@ h1,h2,h3{
   color: var(--title-color);
 }
 
-ul {
+ul, li {
   padding: 0;
   list-style: none;
 }
@@ -618,7 +618,6 @@ button {
   position: absolute;
   right: 0;
   bottom: 4.5rem;
-  /* opacity: 1; */
 }
 
 .addButton {
@@ -704,6 +703,44 @@ button {
   width: .9rem;
   height: 1.2rem;
   border-radius: 40px;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowPage {
+  font-size: 1.9rem;
+}
+
+.brLeft {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.brRight {
+  border-radius: 0 1rem 1rem 0;
+}
+
+.numPage {
+  font-size: 1.2rem;
+}
+
+.arrowPage, .numPage {
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--first-color-dark);
+  color: #FFF;
+  width: 40px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2),
+              0 -2px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.numPage:hover, .arrowPage:hover, .atualPg {
+  background-color: var(--first-color-darken);
 }
 
 /*========== FAVORITED ==========*/
@@ -992,10 +1029,6 @@ button {
   transition: 0.5s;
 }
 
-/* .darkBtn{
-
-} */
-
 
 /*========== FOOTER ==========*/
 .footer {
@@ -1183,7 +1216,6 @@ button {
   }
 
   .addRemoveButtons {
-    /* opacity: 0; */
     bottom: 6.5rem;
   }
 
@@ -1232,7 +1264,6 @@ button {
   color: var(--container-color);
   background-color: var(--title-home-color);
 }
-
 
   /*========== FAVORITED ==========*/
   .favContainer {

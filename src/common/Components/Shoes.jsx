@@ -2,16 +2,19 @@ import React, { useContext, useEffect, useState } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import {
-  FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart, FaArrowAltCircleRight, FaArrowAltCircleLeft,
+  FaHeart, FaRegHeart, FaMinus, FaPlus, FaShoppingCart,
 } from 'react-icons/fa';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import store, { addCart, addProducts, setFav } from '../../context/store';
 import { Fav, CarT, showQty } from '../../functions';
 import { CALÇADOS, fetchAPI } from '../../services';
 
 export default function Shoes() {
-  const initialPage = { initialPg: 0, limitPg: 1 };
-  const [show, setShow] = useState(initialPage);
+  const initialPage = {
+    qtyPgs: 1, numPgs: [], atualPg: 1, qtyPgsFloor: 1, initialPg: 0, limitPg: 6, cardsLimit: 6,
+  };
+  const [pages, setPages] = useState(initialPage);
 
   const {
     products: { products, favorited }, cart: { cart }, setProducts, setCart,
@@ -22,38 +25,71 @@ export default function Shoes() {
     return newName;
   };
 
+  const qtyPages = (productS) => {
+    const { cardsLimit, numPgs } = pages;
+    const qtyPgsFull = productS.length / cardsLimit;
+    const qtyPgsFloor = Math.floor(qtyPgsFull);
+    const qtyPgs = Math.ceil(qtyPgsFull);
+
+    for (let i = 1; i <= qtyPgs; i += 1) { numPgs.push(i); }
+
+    setPages({ ...pages, qtyPgs, qtyPgsFloor });
+  };
+
   const nextSlide = () => {
-    const { limitPg } = show;
-    const limit = 6;
+    const { limitPg, cardsLimit, atualPg } = pages;
+
     if (limitPg >= products.length - 1) {
-      setShow(initialPage);
+      setPages({
+        ...pages, initialPg: 0, limitPg: 6, atualPg: 1,
+      });
     } else {
-      setShow((prevState) => ({
-        initialPg: prevState.initialPg + limit,
-        limitPg: prevState.limitPg + limit,
+      setPages((prevState) => ({
+        ...pages,
+        initialPg: prevState.initialPg + cardsLimit,
+        limitPg: prevState.limitPg + cardsLimit,
+        atualPg: atualPg + 1,
       }));
     }
   };
 
   const prevSlide = () => {
-    const { initialPg } = show;
-    const limit = 6;
+    const {
+      initialPg, cardsLimit, qtyPgsFloor, qtyPgs, atualPg,
+    } = pages;
+
     if (initialPg === 0) {
-      setShow({
-        initialPg: products.length - limit,
-        limitPg: products.length - 1,
+      setPages({
+        ...pages,
+        initialPg: cardsLimit * qtyPgsFloor,
+        limitPg: cardsLimit * (qtyPgsFloor) + cardsLimit,
+        atualPg: qtyPgs,
       });
     } else {
-      setShow((prevState) => ({
-        initialPg: prevState.initialPg - limit,
-        limitPg: prevState.limitPg - limit,
+      setPages((prevState) => ({
+        ...pages,
+        initialPg: prevState.initialPg - cardsLimit,
+        limitPg: prevState.limitPg - cardsLimit,
+        atualPg: atualPg - 1,
       }));
     }
   };
 
+  const selectedPage = (numPg) => {
+    const { cardsLimit } = pages;
+
+    setPages({
+      ...pages,
+      initialPg: (numPg - 1) * cardsLimit,
+      limitPg: numPg * cardsLimit,
+      atualPg: numPg,
+    });
+  };
+
   const renderProducts = (Products) => {
-    const initialPg = 0;
-    const limitPg = 6;
+    const {
+      initialPg, limitPg, numPgs, atualPg,
+    } = pages;
 
     const screenProducts = Products.slice(initialPg, limitPg);
     return (
@@ -119,8 +155,20 @@ export default function Shoes() {
             );
           })}
         </div>
-        <FaArrowAltCircleRight onClick={nextSlide} />
-        <FaArrowAltCircleLeft onClick={prevSlide} />
+        <ul className="pageContent">
+          <li><MdKeyboardArrowLeft onClick={prevSlide} className="arrowPage brLeft" /></li>
+          {numPgs.map((num) => (
+            <li
+              aria-hidden
+              key={num}
+              onClick={() => selectedPage(num)}
+              className={(num === atualPg) ? 'numPage atualPg' : 'numPage'}
+            >
+              {num}
+            </li>
+          )) }
+          <li><MdKeyboardArrowRight onClick={nextSlide} className="arrowPage brRight" /></li>
+        </ul>
       </section>
     );
   };
@@ -128,23 +176,26 @@ export default function Shoes() {
   const getProducts = async () => {
     const response = await fetchAPI(CALÇADOS);
     const allProducts = response.results;
-    const randomProducts = Math.random() * 100;
-    const numberCards = 9;
-    const cardsLimit = randomProducts + numberCards;
-    const excludedProduct = 'kit';
+    qtyPages(allProducts);
+    setProducts(addProducts(response.results, allProducts));
+    // const randomProducts = Math.random() * 100;
+    // const numberCards = 9;
+    // const cardsLimit = randomProducts + numberCards;
+    // const excludedProduct = 'kit';
 
-    const productsFiltered = allProducts.filter((product) => (
-      !product.title.toLowerCase().includes(excludedProduct)));
+    // const productsFiltered = allProducts.filter((product) => (
+    //   !product.title.toLowerCase().includes(excludedProduct)));
 
-    let cardsInitial = 0;
-    if (cardsLimit < productsFiltered.length) {
-      cardsInitial = cardsLimit - numberCards;
-    } else {
-      cardsInitial = productsFiltered.length - numberCards;
-    }
+    // let cardsInitial = 0;
+    // if (cardsLimit < productsFiltered.length) {
+    //   cardsInitial = cardsLimit - numberCards;
+    // } else {
+    //   cardsInitial = productsFiltered.length - numberCards;
+    // }
 
-    const newProducts = productsFiltered.slice(cardsInitial, cardsLimit);
-    setProducts(addProducts(response.results, newProducts));
+    // const newProducts = productsFiltered.slice(cardsInitial, cardsLimit);
+    // qtyPages(newProducts);
+    // setProducts(addProducts(response.results, newProducts));
   };
 
   // ----------------------------------------------------------------------------------------------

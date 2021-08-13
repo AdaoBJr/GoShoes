@@ -19,7 +19,7 @@ export default function Header({ colec }) {
     setTheme,
   } = useContext(store);
 
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setPagesMenu] = useState(false);
   const Qty = showQty(false, cart);
 
   // ---------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ export default function Header({ colec }) {
             <ul className="navList">
               <li
                 className="navItem"
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={() => setPagesMenu(!showMenu)}
                 aria-hidden
               >
                 {(home) ? (
@@ -60,7 +60,7 @@ export default function Header({ colec }) {
               </li>
               <li
                 className="navItem"
-                onClick={() => { setShowMenu(!showMenu); }}
+                onClick={() => { setPagesMenu(!showMenu); }}
                 aria-hidden
               >
                 {(home) ? (
@@ -82,14 +82,14 @@ export default function Header({ colec }) {
               </li>
               <li
                 className="navItem"
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={() => setPagesMenu(!showMenu)}
                 aria-hidden
               >
                 <Link to="/favoritos" className={(fav) ? 'navLink activeLink' : 'navLink'}>Favoritos</Link>
               </li>
               <li
                 className="navItem"
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={() => setPagesMenu(!showMenu)}
                 aria-hidden
               >
                 <Link to="/carrinho" className={(carT) ? 'navLink activeLink display' : 'navLink display'}>
@@ -124,7 +124,7 @@ export default function Header({ colec }) {
           </div>
           <div
             aria-hidden
-            onClick={() => setShowMenu(!showMenu)}
+            onClick={() => setPagesMenu(!showMenu)}
             className={(showMenu) ? 'icon iconActive' : 'icon'}
           >
             <div className="hamburguer" />
