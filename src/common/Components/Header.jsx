@@ -136,5 +136,9 @@ export default function Header({ colec }) {
 }
 
 Header.propTypes = {
-  colec: PropTypes.bool.isRequired,
+  colec: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  colec: undefined,
 };

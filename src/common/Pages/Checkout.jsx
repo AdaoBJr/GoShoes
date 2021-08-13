@@ -55,7 +55,7 @@ export default function Checkout() {
         <Dashboard />
         <Link
           to="/"
-          onClick={() => setCart(addCart([]))}
+          onClick={() => { setCart(addCart([])); localStorage.clear(); }}
         >
           <h3 className="checkoutBack">
             <TiArrowBack style={{ fontSize: '1.6rem' }} />

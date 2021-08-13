@@ -1,10 +1,4 @@
 // HELPERS ---------------------------------------------------------------------------------
-// FUNÇÃO DE REMOÇÃO
-
-export const removeItem = (id, arrayData) => {
-  const removedItem = arrayData.filter((item) => item.id !== id);
-  return removedItem;
-};
 
 // SET / GET LOCALSTORAGE
 export const setStorage = (key, value) => (
@@ -12,6 +6,13 @@ export const setStorage = (key, value) => (
 
 export const getStorage = (key, value = []) => (
   JSON.parse(localStorage.getItem(key)) || value);
+
+// FUNÇÃO DE REMOÇÃO
+export const removeItem = (id, arrayData) => {
+  const removedItem = arrayData.filter((item) => item.id !== id);
+  setStorage('LScart', removedItem);
+  return removedItem;
+};
 
 // ----------------------------------------------------------------------------------------------
 // SET FAVORITOS
@@ -69,8 +70,10 @@ export const CarT = (product, cart, add) => {
 
 // TOTAL VALUE CART
 export const sumCart = (cart) => {
-  const totalCarT = cart.reduce((acc, currCart) => acc + currCart.totalValue, 0);
-  return Math.round((totalCarT) * 100) / 100;
+  const total = cart.reduce((acc, currCart) => acc + currCart.totalValue, 0);
+  const totalCarT = Math.round((total) * 100) / 100;
+  setStorage('LScartSum', totalCarT);
+  return totalCarT;
 };
 
 // ----------------------------------------------------------------------------------------------
