@@ -1,9 +1,9 @@
 <p align="center"><img width='150px' src='https://github.com/AdaoBJr/GoShoes/blob/main/src/images/GoShoes.png' />
-<h1 align="center"> GoShoes Project  </h1>  </p>
+<h1 align="center"> GoShoes Project - Responsive Page </h1>  </p>
 <h2 align="center">GitHub Pages:</h2>
  
  <div align="center">
-   <a href="https://adaobjr.github.io/TrybeWallet/" target="_blank">
+   <a href="https://adaobjr.github.io/GoShoes/" target="_blank">
     <img width='100px' src='https://image.flaticon.com/icons/png/512/5222/5222347.png' target="_blank" />
  </div>
  
@@ -24,8 +24,9 @@ A partir dessas demandas, desenvolvi uma aplicação onde os usuários poderão:
   - Visualizar produtos na categoria de calçados a partir da _API do Mercado Livre_;
   - Interagir com os produtos recebidos pela API de modo a adicioná-los e removê-los de um carrinho de compras em diferentes quantidades;
   - Interagir com os produtos recebidos pela API de modo a adicioná-los e removê-los da página de itens favoritos;
-  - Visualizar detalhes do produto;
-  - E por fim, finalizar a compra (simulada) dos itens selecionados.
+  - Interagir com os produtos através da paginação das telas;
+  - Trocar o modo de exibição entre LightMode e DarkMode;
+  - E por fim, finalizar a compra (simulada) dos itens selecionados sendo dirigido para uma página de checkout (podendo iniciar todo processo, caso queira).
 
 ## Documentação da API do Mercado Livre
 
