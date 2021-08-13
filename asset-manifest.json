@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/GoShoes/static/css/main.62285bff.chunk.css",
-    "main.js": "/GoShoes/static/js/main.bac64a2f.chunk.js",
-    "main.js.map": "/GoShoes/static/js/main.bac64a2f.chunk.js.map",
+    "main.js": "/GoShoes/static/js/main.d1775990.chunk.js",
+    "main.js.map": "/GoShoes/static/js/main.d1775990.chunk.js.map",
     "runtime-main.js": "/GoShoes/static/js/runtime-main.43cd0e8b.js",
     "runtime-main.js.map": "/GoShoes/static/js/runtime-main.43cd0e8b.js.map",
     "static/css/2.7fc9bc2b.chunk.css": "/GoShoes/static/css/2.7fc9bc2b.chunk.css",
@@ -24,6 +24,6 @@
     "static/css/2.7fc9bc2b.chunk.css",
     "static/js/2.cb8e3c53.chunk.js",
     "static/css/main.62285bff.chunk.css",
-    "static/js/main.bac64a2f.chunk.js"
+    "static/js/main.d1775990.chunk.js"
   ]
 }
